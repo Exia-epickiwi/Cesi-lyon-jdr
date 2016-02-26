@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ project.name }} - {{ request.settings.siteName }}
+{% endblock %}
+{% block head %}
+        <link rel="stylesheet" href="{% static "css/projects.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/project.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/markdown.css" %}"/>
+{% endblock %}
+{%  block content %}
+    <h2><a href="{% url "wiki.views.showArticle" project.wikiArticle.slug %}" title="Voir la présentation sur le wiki">{{ project.name }}</a></h2>
+    <article class="projectDesc mdFormated">
+        {% autoescape off %}
+            {{ project.wikiArticle.formatedContent }}
+        {% endautoescape %}
+    </article>
+    <article class="projectList tasks">
+        {% for task in project.tasks %}
+            <div class="project task" data-progression="{{ task.progression }}" data-id="{{ task.id }}">
+                <div class="progression">{{ task.progression }}%</div>
+                <h3>{{ task.name }}</h3>
+                <div class="progressionBar"><div class="bar"></div>{% if request.user.is_authenticated %}<div class="cursor"></div>{% endif %}</div></div>
+            </div>
+        {% endfor %}
+        {% if form %}
+            <form action="{% url "projects.views.showProject" slug %}" method="post" class="createTask">
+            {% csrf_token %}
+                <input type="text" placeholder="Créer une tâche" name="{{ form.name.html_name }}"/><button type="submit">
+                    <i class="material-icons">add</i>
+                </button>
+            </form>
+        {% endif %}
+    </article>
+{% endblock %}
+{% block script %}
+    <script src="{% static "js/projects.js" %}"></script>
+{% endblock %}

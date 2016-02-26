@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Les projets - {{ request.settings.siteName }}
+{% endblock %}
+{% block head %}
+        <link rel="stylesheet" href="{% static "css/projects.css" %}"/>
+{% endblock %}
+{%  block content %}
+    <h2>{{ projectNumber }} projet{{ projectNumber|pluralize }} en cours</h2>
+    <article class="projectList">
+    {% for project in projects %}
+        <a href="{% url "projects.views.showProject" project.slug %}" class="project" data-progression="{{ project.progression }}">
+            <div class="progression">{{ project.progression }}%</div>
+            <h3>{{ project.name }}</h3>
+            <div class="progressionBar"><div class="bar"></div></div>
+        </a>
+    {% endfor %}
+    </article>
+{% endblock %}
+{% block script %}
+    <script src="{% static "js/projects.js" %}"></script>
+{% endblock %}

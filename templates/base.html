@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{{ request.settings.siteName }}{% endblock %}</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <link rel="stylesheet" href="{% static "css/fonts.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/icons.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/reset.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/global.css" %}"/>
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+
+
+    <header class="{% block headerClass %}{% endblock %}">
+        <nav>
+            <div class="filigram">BETA</div>
+            <h1><a href="{% url "index.views.home" %}">{{ request.settings.headerName }}</a></h1>
+            <div class="navLeft">
+                <span class="navElement"><a href="{% url "projects.views.home" %}">Projets</a></span>
+                <span class="navElement"><a href="{% url "events.views.home" %}">Calendrier</a></span>
+            </div>
+            <div class="navRight">
+                <span class="navElement"><a href="{% url "wiki.views.home" %}">Wiki</a></span>
+                {% if not request.user.is_authenticated %}<span class="navElement"><a href="{% url "users.views.connect" %}">Connexion</a></span>{% endif %}
+                {% if request.user.is_authenticated %}<span class="navElement"><a href="{% url "users.views.disconnect" %}">
+                    {% if request.user.first_name %}{{ request.user.first_name }}{% endif %}
+                    {% if request.user.last_name %}{{ request.user.last_name }}{% endif %}
+                    {% if not request.user.first_name and not request.user.last_name %}{{ request.user.username }}{% endif %}
+                </a></span>{% endif %}
+            </div>
+        </nav>
+        <a href="{% url "index.views.home" %}" class="logoContainer">
+            <div class="logo">
+                <div class="logoDice">
+                    <figure class="top">1</figure>
+                    <figure class="bottom">6</figure>
+                    <figure class="front">2</figure>
+                    <figure class="back">5</figure>
+                    <figure class="left">3</figure>
+                    <figure class="right">4</figure>
+                </div>
+            </div>
+        </a>
+    </header>
+
+    {% if messages %}
+    <div class="stackMessages">
+        {% for message in messages %}
+            <div class="message hidden {% if message.tags %}{{ message.tags }}{% else %}info{% endif %}">
+                {% if message.tags %}
+                <div class="icon">
+                    {% if message.tags == "info" %}
+                        <i class="material-icons">info_outline</i>
+                    {% elif message.tags == "warning" %}
+                        <i class="material-icons">warning</i>
+                    {% elif message.tags == "debug" %}
+                        <i class="material-icons">bug_report</i>
+                    {% elif message.tags == "success" %}
+                        <i class="material-icons">done</i>
+                    {% elif message.tags == "error" %}
+                        <i class="material-icons">clear</i>
+                    {% endif %}
+                </div>
+                {% endif %}
+                <div class="description">
+                    {{ message }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <section>
+        {% block content %}
+            <p>ERREUR : AUCUN CONTENU</p>
+        {%  endblock %}
+    </section>
+        <footer>
+            <p>{{ request.settings.authorName }} 2016 - <a href="{% url "wiki.views.showArticle" "a-propos" %}">A propos</a></p>
+        </footer>
+    <script src="{% static "js/jquery.js" %}"></script>
+    <script src="{% static "js/moment.js" %}"></script>
+    <script src="{% static "js/global.js" %}"></script>
+    {% block script %}{% endblock %}
+    </body>
+</html>

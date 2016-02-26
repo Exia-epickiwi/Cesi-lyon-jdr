@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Connexion - {{ request.settings.siteName }}
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/connection.css" %}"/>
+{% endblock %}
+{%  block content %}
+    <div class="connectionWrapper">
+        <div class="connectionLogo">
+            <i class="material-icons">lock_open</i>
+        </div><form action="{% url "users.views.connect" %}" method="post" class="connectionForm">
+            {% csrf_token %}
+            <div class="connectionPresentation">
+                <h2>Connectez-vous</h2>
+                <p>Pour modifier les pages du wiki et participer aux projets veuillez vous connecter a l'aide du formulaire ci dessous</p>
+            </div>
+            <div class="textField">
+                <i class="material-icons icon">person_outline</i>
+                <input
+                        type="text"
+                        name="{{ form.username.html_name }}"
+                        placeholder="{{ form.username.label }}"
+                        {% if form.username.value %}
+                            value="{{ form.username.value }}"
+                        {% endif %}/>
+            </div>
+            <div class="textField">
+                <i class="material-icons icon">vpn_key</i>
+                <input
+                        type="password"
+                        name="{{ form.password.html_name }}"
+                        placeholder="{{ form.password.label }}"
+                        {% if form.password.value %}
+                            value="{{ form.password.value }}"
+                        {% endif %}/>
+            </div>
+            <button type="submit" class="submitButton" title="Connexion">
+                <i class='material-icons'>done</i>
+            </button>
+        </form>
+        {% if error %}
+        <div class="errorBanner">
+            <div class="icon">
+                <i class="material-icons">clear</i>
+            </div><div class="content"><p>Votre identifiant ou votre mot de passe est incorrecte. Veuillez reesayer ou contacter un administrateur pour récupèrer votre compte.</p></div>
+        </div>
+        {% endif %}
+        {% if form.non_field_error %}
+        <div class="errorBanner">
+            <div class="icon">
+                <i class="material-icons">clear</i>
+            </div><div class="content"><p>{{ form.non_field_error }}</p></div
+        </div>
+        {% endif %}
+        {% if form.username.errors %}
+        <div class="errorBanner">
+            <div class="icon">
+                <i class="material-icons">clear</i>
+            </div><div class="content">
+                <p>{{ form.username.label }} : {{ form.username.errors }}</p>
+            </div>
+        </div>
+        {% endif %}
+        {% if form.password.errors %}
+        <div class="errorBanner">
+            <div class="icon">
+                <i class="material-icons">clear</i>
+            </div><div class="content">
+                <p>{{ form.password.label }} : {{ form.password.errors }}</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

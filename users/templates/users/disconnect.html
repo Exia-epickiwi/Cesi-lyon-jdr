@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Déconnexion - {{ request.settings.siteName }}
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/connection.css" %}"/>
+{% endblock %}
+{%  block content %}
+    <div class="connectionWrapper disconnect">
+        <div class="connectionLogo">
+            <i class="material-icons">lock_outline</i>
+        </div><form action="{% url "users.views.disconnect" %}" method="post" class="connectionForm">
+            {% csrf_token %}
+            <div class="connectionPresentation">
+                <h2>Au revoir</h2>
+                <p>Déconnectez vous simplement en cliquant sur le bouton ci dessous.</p>
+            </div>
+            <button type="submit" class="submitButton" title="Déconnexion">
+                <i class='material-icons'>vpn_key</i>
+            </button>
+        </form>
+    </div>
+{% endblock %}

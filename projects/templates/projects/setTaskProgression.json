@@ -1,0 +1,15 @@
+{
+  {% if not error%}
+    "state": "success",
+  {% else %}
+    "state": "error",
+    "error": "{{error}}",
+    "description": "{{errDescription}}",
+  {% endif %}
+  {% if task %}
+    "task": {
+      "name": "{{task.name}}",
+      "progression": "{{task.progression}}"
+    }
+  {% endif %}
+}

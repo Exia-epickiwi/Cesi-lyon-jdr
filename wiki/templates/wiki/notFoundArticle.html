@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Non trouvé - {{ request.settings.siteName }}
+{% endblock %}
+{% block head %}
+        <link rel="stylesheet" href="{% static "css/wiki.css" %}"/>
+{% endblock %}
+{% block title %}{{ slug }} - Jeux de roles CESI Lyon{% endblock %}
+{%  block content %}
+    <div class="createWrapper">
+        <div class="createLogo">
+            :-(
+        </div><div action="{% url "users.views.connect" %}" class="createForm">
+            {% csrf_token %}
+            <div class="createPresentation">
+                <h2>Non trouvé</h2>
+                <p>L'article {{ slug }} n'a pas été trouvé. vous pouvez le créer</p>
+            </div>
+            <a class="submitButton" title="Créer" href="{% url "wiki.views.createArticle" slug %}">
+                <i class='material-icons'>create</i>
+            </a>
+        </div>
+    </div>
+{%  endblock %}

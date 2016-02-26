@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/home.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/markdown.css" %}"/>
+{% endblock %}
+{% block content %}
+<div class="nextEvent{% if not nextEvent.background %} black{% endif %}">
+    <div class="nextTitle centeredEvent">Evènement à venir</div>
+    <h1 class="centeredEvent">{{ nextEvent.title }}</h1>
+    <h2 class="centeredEvent">Le {{ nextEvent.date.date }} à {{ nextEvent.date.time }}</h2>
+    <h3 class="centeredEvent">{{ nextEvent.shortDescription }}</h3>
+    {% if nextEvent.background %}
+       <img class="background" src="{{ nextEvent.background.url }}" />
+    {% else %}
+        <img class="background" src="{% static "img/defaultBackground.jpg" %}" />
+    {% endif %}
+    <a class="more centeredEvent" href="{% url "events.views.showEvent" nextEvent.slug %}">En savoir +</a>
+</div>
+    <div class="presentation mdFormated">
+    {% autoescape off %}
+        {{ presentation.formatedContent }}
+    {% endautoescape %}
+    </div>
+    </section>
+    <section class="blueprint projects">
+        <h2>Projet{{ projects.count|pluralize }} en cours</h2>
+        {% for project in projects %}
+            <a href="{% url "projects.views.showProject" project.slug %}" class="project" data-progression="{{ project.progression }}">
+                <div class="progression">{{ project.progression }}%</div>
+                <h3>{{ project.name }}</h3>
+                <div class="progressionBar"><div class="bar"></div></div>
+            </a>
+        {% endfor %}
+{% endblock %}
+{% block script %}
+    <script src="{% static "js/projects.js" %}"></script>
+    <script src="{% static "js/markdown.js" %}"></script>
+{% endblock %}

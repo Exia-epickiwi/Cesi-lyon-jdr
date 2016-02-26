@@ -1,0 +1,407 @@
+@keyframes rollTheDices {
+    from{
+        -webkit-transform: rotateY(30deg) rotateZ(30deg) rotateX(30deg);
+        -moz-transform: rotateY(30deg) rotateZ(30deg) rotateX(30deg);
+        -ms-transform: rotateY(30deg) rotateZ(30deg) rotateX(30deg);
+        -o-transform: rotateY(30deg) rotateZ(30deg) rotateX(30deg);
+        transform: rotateY(30deg) rotateZ(30deg) rotateX(30deg);
+    }
+    to{
+        -webkit-transform: rotateY(390deg) rotateZ(30deg) rotateX(390deg);
+        -moz-transform: rotateY(390deg) rotateZ(30deg) rotateX(390deg);
+        -ms-transform: rotateY(390deg) rotateZ(30deg) rotateX(390deg);
+        -o-transform: rotateY(390deg) rotateZ(30deg) rotateX(390deg);
+        transform: rotateY(390deg) rotateZ(30deg) rotateX(390deg);
+    }
+}
+
+body{
+    font-family: "Open Sans", sans-serif;
+    /*background-image: url("../img/background.png");*/
+}
+
+header {
+    position: relative;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+}
+
+header::before, header::after {
+    content: " ";
+    display: block;
+
+    width: 100px;
+    height: 100px;
+
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    z-index: 99;
+
+    background: #2196f3;
+
+    -webkit-transform: translateX(-50%) rotate(45deg);
+    -moz-transform: translateX(-50%) rotate(45deg);
+    -ms-transform: translateX(-50%) rotate(45deg);
+    -o-transform: translateX(-50%) rotate(45deg);
+    transform: translateX(-50%) rotate(45deg);
+}
+
+header::after{
+    width: 90px;
+    height: 90px;
+    box-shadow: black 0 0 5px;
+}
+
+header nav{
+    width: 100%;
+    height:100px;
+
+    background-color: #f44336;
+
+    position: relative;
+    left:0;
+    top: 0;
+    z-index: 100;
+
+    -webkit-box-shadow: black 0 0 5px;
+    -moz-box-shadow: black 0 0 5px;
+    box-shadow: black 0 0 5px;
+}
+
+header .logoContainer{
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    z-index: 101;
+
+    display: block;
+    width: 150px;
+
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+header .logoContainer .logo{
+    position: relative;
+    z-index: 102;
+    color: #f44336;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.logoDice{
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform-style: preserve-3d;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-animation-duration: 2s;
+    -moz-animation-duration: 2s;
+    -o-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-name: rollTheDices;
+    -moz-animation-name: rollTheDices;
+    -o-animation-name: rollTheDices;
+    animation-name: rollTheDices;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+header .logoContainer:hover .logoDice{
+    -webkit-animation-play-state: running;
+    -moz-animation-play-state: running;
+    -o-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.logoDice figure{
+    width: 35px;
+    height: 35px;
+    border: solid 3px #f44336;
+    /*background-color: white;*/
+    background-color: #ffebee;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: 50% 50%;
+    line-height: 30px;
+    font-size: 30px;
+    text-align: center;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius: 3px;
+    perspective: 900px;
+}
+
+.logoDice figure.front{
+    transform: translate3d(-20px,-20px,20px);
+}
+
+.logoDice figure.back{
+    transform: translate3d(-20px,-20px,-20px) rotateY(180deg);
+}
+
+.logoDice figure.left{
+    transform: translate3d(-40px,-20px,0) rotateY(90deg)  rotateZ(180deg) rotateX(180deg);
+}
+
+.logoDice figure.right{
+    transform: translate3d(0,-20px,0) rotateY(90deg);
+}
+
+.logoDice figure.top{
+    transform: translate3d(-20px,-40px,0) rotateX(90deg);
+}
+
+.logoDice figure.bottom{
+    transform: translate3d(-20px,0px,0) rotateX(90deg) rotateZ(180deg) rotateY(180deg);
+}
+
+header .logoContainer .logo i{
+    position: relative;
+    top: 10px;
+    font-size: 65px;
+}
+
+header .logoContainer::before, header .logoContainer::after{
+    content: " ";
+    display: block;
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    -webkit-transform: translateX(-50%) rotate(45deg);
+    -moz-transform: translateX(-50%) rotate(45deg);
+    -ms-transform: translateX(-50%) rotate(45deg);
+    -o-transform: translateX(-50%) rotate(45deg);
+    transform: translateX(-50%) rotate(45deg);
+
+}
+
+header .logoContainer::before{
+    width: 90px;
+    height: 90px;
+    background-color: #f44336;
+}
+
+header .logoContainer::after{
+    width: 80px;
+    height: 80px;
+    background-color: white;
+}
+
+header nav .navLeft, header nav .navRight{
+    width: calc(50% - 75px);
+
+    position: absolute;
+    top: 50px;
+}
+
+header nav .navLeft{
+    left: 0;
+    text-align: right;
+}
+
+header nav .navRight{
+    right: 0;
+    text-align: left;
+}
+
+header nav .filigram{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 100px;
+    color: rgba(255,255,255,0.1)
+}
+
+header nav .navElement{
+    display: inline-block;
+    margin: 0 0.5vw;
+    padding: 0 0.5vw;
+    height: 45px;
+    line-height: 50px;
+    
+    border-bottom: solid rgba(255,255,255,0) 5px;
+    text-transform: uppercase;
+
+    -webkit-transition: 0.2s border-color;
+    -moz-transition: 0.2s border-color;
+    -ms-transition: 0.2s border-color;
+    -o-transition: 0.2s border-color;
+    transition: 0.2s border-color;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+header nav .navElement a{
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+header nav .navElement:hover{
+    border-color: rgba(255,255,255,1);
+}
+
+header nav h1{
+    width: 100%;
+    height: 50px;
+    line-height: 35px;
+    text-align: center;
+    color: white;
+    font-size: 35px;
+    font-weight: lighter;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 101;
+}
+
+header nav h1 a{
+    color: inherit;
+    text-decoration: none;
+}
+
+header.transparent{
+    position: absolute;
+}
+
+header.transparent nav{
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none    ;
+    box-shadow: none    ;
+}
+
+header.transparent .logoContainer::before, header.transparent .logoContainer::after, header.transparent::after, header.transparent::before{
+    display: none;
+}
+
+header.transparent .logoDice figure{
+    color: transparent;
+    border-color: white;
+    background-color: transparent;
+    -webkit-box-shadow: rgba(255,255,255,0.8) 0 0 10px;
+    -moz-box-shadow: rgba(255,255,255,0.8) 0 0 10px    ;
+    box-shadow: rgba(255,255,255,0.8) 0 0 10px    ;
+}
+
+section{
+    position: relative;
+}
+
+footer{
+    text-align: center;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    font-size: 10px;
+}
+
+.stackMessages{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 200;
+}
+
+.stackMessages .message{
+    width: 50%;
+    padding: 10px 2%;
+    margin: 10px auto;
+    background-color: white;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    color: #3c3c3c;
+    opacity: 0.95;
+    -webkit-box-shadow: 0 3px 5px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0 3px 5px rgba(0,0,0,0.7);
+    box-shadow: 0 3px 5px rgba(0,0,0,0.7);
+    font-size: 20px;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out ;
+    -ms-transition: all 0.5s ease-out ;
+    -o-transition: all 0.5s ease-out ;
+    transition: all 0.5s ease-out ;
+}
+
+.stackMessages .message.hidden{
+    opacity: 0;
+}
+
+.stackMessages .message.info{
+    background-color: #2196f3;
+    color: #daebf3;
+}
+
+.stackMessages .message.warning{
+    background-color: #f3c86f;
+    color: #846c3e;
+}
+
+.stackMessages .message.error{
+    background-color: #f44336;
+    color: #ffdfda;
+}
+
+.stackMessages .message.success{
+    background-color: #11cb57;
+    color: #dbffe0;
+}
+
+.stackMessages .message .icon{
+    float: left;
+    padding-right: 10px;
+}
+
+.stackMessages
+
+@media screen and (max-width: 600px) {
+    header .logoContainer, header::before, header::after {
+        display: none;
+    }
+
+    header nav{
+        height: 150px;
+    }
+
+    header nav h1{
+        font-size: 9vw;
+    }
+
+    header nav .navLeft, header nav .navRight, header nav h1{
+        width: 100%;
+        position: relative;
+        left: 0;
+        top: 0;
+        text-align: center;
+    }
+}

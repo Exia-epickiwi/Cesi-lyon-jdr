@@ -1,0 +1,231 @@
+section{
+    background-color: white;
+}
+
+.presentation{
+    width: 100%;
+    padding-top: 100px;
+    height: calc(100vh - 102px);
+    background-color: black;
+    position: relative;
+    border-bottom: #f44336 solid 2px;
+    overflow: hidden;
+}
+
+.presentation .background{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 0.5;
+    -webkit-transform: translateY(-12.5%);
+    -moz-transform: translateY(-12.5%);
+    -ms-transform: translateY(-12.5%);
+    -o-transform: translateY(-12.5%);
+    transform: translateY(-12.5%);
+}
+
+.presentation.defaultBackground .background{
+    opacity: 1;
+}
+
+.presentation h1{
+    width: 100%;
+    padding-top: 20vh;
+    font-size: 60px;
+    font-weight: lighter;
+    color: white;
+    text-align: center;
+    text-shadow: white 0 0 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.presentation .date{
+    width: 100%;
+    padding-top: 10vh;
+    font-weight: lighter;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    text-shadow: white 0 0 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.presentation .date.relative{
+    font-size: 60px;
+}
+
+.presentation .absoluteDate{
+    padding-top: 2vh;
+    width: 100%;
+    font-weight: lighter;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    text-shadow: white 0 0 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.presentation .shortDescription{
+    width: 100%;
+    padding-top: 10vh;
+    font-weight: lighter;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    text-shadow: white 0 0 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.presentation.defaultBackground *{
+    color: rgba(0, 0, 0, 0.5);
+    text-shadow: rgba(0, 0, 0, 0.5) 0 0 2px;
+}
+
+article{
+    margin-bottom: 10px;
+    padding-left: 25vw;
+    padding-right: 25vw;
+    padding-top: 50px;
+}
+
+article.description *{
+    font-size: 19px;
+    padding-bottom: 15px;
+    color: #3c3c3c;
+}
+
+article.description h1, article.description h2, article.description h3, article.description h4, article.description h5{
+    padding-left: 5%;
+}
+
+article.description strong{
+    font-weight: bold;
+}
+
+article.description em{
+    font-style: italic;
+}
+
+article.description blockquote{
+    border-left: 5px #9e9e9e solid;
+    padding-left: 10px;
+}
+
+
+
+article.description h1, article.comments h2{
+    font-size: 30px;
+    font-weight: lighter;
+    color: #f44336;
+}
+
+article.description h2{
+    font-size: 25px;
+    font-weight: lighter;
+    color: #f44336;
+}
+
+article.description h3{
+    font-size: 20px;
+    font-weight: lighter;
+    color: #f44336;
+}
+
+article.description h4{
+    font-size: 20px;
+    font-weight: bolder;
+    color: #9e9e9e;
+}
+
+article.description h5,article.description h6{
+    font-size: 20px;
+    font-weight: normal;
+    color: #9e9e9e;
+}
+
+.centeredError{
+    width: 100%;
+    font-size: 50px;
+    font-weight: lighter;
+    color: #c2c2c2;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+article.comments{
+    padding-bottom: 25px;
+    overflow: hidden;
+}
+
+article.comments .comment{
+    width: calc(80% - 22px);
+    margin: auto;
+    margin-bottom: 50px;
+    padding: 10px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    border: solid #64b5f6 2px;
+}
+
+article.comments .comment .name{
+    margin-bottom: 10px;
+    font-size: 25px;
+    color: #2196f3;
+}
+
+article.comments .comment .date{
+    float: right;
+    font-size: 15px;
+    color: #64b5f6;
+}
+
+article.comments h2{
+    margin-bottom: 25px;
+    padding-left: 5%;
+}
+
+@media screen and (max-width: 1000px) {
+    article{
+        padding-left: 5vw;
+        padding-right: 5vw;
+        padding-top: 25px;
+    }
+
+    article.comments .comment{
+        width: calc(100% - 22px);
+        margin-bottom: 25px;
+    }
+
+    .presentation h1{
+        padding-top: 25px;
+        font-size: 7vw;
+    }
+
+    .presentation .date{
+        padding-top: 15px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .presentation .background{
+        width: auto;
+        height: 100vh;
+        -webkit-transform: translateX(-25%);
+        -moz-transform: translateX(-25%);
+        -ms-transform: translateX(-25%);
+        -o-transform: translateX(-25%);
+        transform: translateX(-25%);
+    }
+
+    .presentation h1{
+        padding-top: 15vh;
+        font-size: 12vw;
+    }
+}

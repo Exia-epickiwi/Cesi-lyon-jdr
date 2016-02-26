@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+        <link rel="stylesheet" href="{% static "css/calendar.css" %}"/>
+{% endblock %}
+{% block title %}
+    Evènements - Comission jeux de roles CESI Lyon
+{% endblock %}
+{% block content %}
+    <h1>Calendrier des prochains évènements</h1>
+    {% for event in events %}
+        <article class="event">
+        <a href="{% url "events.views.showEvent" event.slug %}">
+            <div class="date">
+                <span class="dateText">{{ event.date.date }}</span>
+                <span class="timeText">{{ event.date.time }}</span>
+            </div><div class="infos">
+                <div class="comments">
+                    <span class="commentNumber">{{ event.comment_set.all.count }}</span> <i class="material-icons">mode_comment</i>
+                </div>
+                <h2>{{ event.title }}</h2>
+                <div class="description">
+                    {{ event.shortDescription }}
+                </div>
+            </div>
+        </a>
+        </article>
+    {% endfor %}
+
+{% endblock %}

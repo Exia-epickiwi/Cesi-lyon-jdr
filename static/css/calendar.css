@@ -1,0 +1,176 @@
+section{
+    position: relative;
+    background-color: white;
+    padding-bottom: 25px;
+    width: 70vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-top: 65px;
+    margin: auto auto;
+    min-height: calc(100vh - 190px);
+}
+
+section:last-child{
+    min-height: calc(100vh - 190px);
+}
+section::before{
+    content: ' ';
+    width: 0;
+    height: 100%;
+    display: block;
+    border-left: solid 3px #e0e0e0;
+    position: absolute;
+    left: 24%;
+    top: 0;
+}
+
+section > h1{
+    width:70%;
+    margin-left: 30%;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: lighter;
+    color: #9e9e9e;
+}
+
+section article.event{
+    position: relative;
+    margin-bottom: 40px;
+}
+
+section article.event .infos::before{
+    content: " ";
+    display: block;
+    width: 4%;
+    height:0;
+    border-top: solid 3px #e0e0e0;
+    float: left;
+    margin-top: 13px;
+    margin-left: -4.25%;
+}
+
+section article.event .date{
+    display: inline-block;
+    width: 18%;
+    text-align: right;
+    font-size: 20px;
+    color: #64b5f6;
+    vertical-align: top;
+    padding-top: 3px
+}
+
+section article.event .date span{
+    display: block;
+}
+
+section article.event .date .timeText{
+    padding-top: 10px;
+    color: #bbdefb;
+}
+
+section article.event .infos{
+    display: inline-block;
+    width: 78%;
+    text-align: left;
+    margin-left: 4%;
+}
+
+section article.event .infos h2{
+    text-align: left;
+    font-size: 25px;
+    color: #2196f3;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+section article.event .infos .comments{
+    float: right;
+    display: inline-block;
+    color: #64b5f6;
+    position: relative;
+}
+
+section article.event .infos .comments .commentNumber{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+}
+
+section article.event .infos .comments i{
+    font-size: 25px;
+}
+
+.infos .description p,.infos .description{
+    color: #3c3c3c;
+    text-align: left;
+}
+
+.infos .description p,.infos .description ul, .infos .description h1, .infos .description h2, .infos .description h3, .infos .description h4, .infos .description h5, .infos .description h6{
+    margin-bottom: 10px;
+}
+
+.infos .description ul{
+    list-style: square;
+    padding-left: 15px;
+}
+
+.infos .description em{
+    font-style: italic;
+}
+
+.infos .description strong{
+    text-decoration: underline;
+}
+
+
+@media screen and (max-width: 1000px) {
+    section{
+        width: 90vw;
+        padding-top: 10px;
+    }
+
+    section::before{
+        display: none;
+    }
+
+    section h1{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        padding-bottom: 10px;
+        font-size: 8vw;
+    }
+
+    section article.event{
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+    }
+
+    section article.event .date, section article.event .infos{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    section article.event .date{
+        padding-bottom: 10px;
+        text-align: left;
+    }
+
+    section article.event .infos::before{
+        display: none;
+    }
+
+    section article.event .date .dateText, section article.event .date .timeText{
+        display: inline;
+    }
+}
+
+@media screen and (max-width: 600px) {
+}

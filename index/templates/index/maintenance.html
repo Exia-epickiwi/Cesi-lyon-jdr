@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Site en maintenance</title>
+    <link rel="stylesheet" href="{% static "css/connection.css" %}"/>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <link rel="stylesheet" href="{% static "css/fonts.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/icons.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/reset.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/global.css" %}"/>
+</head>
+<body>
+    <div class="connectionWrapper centered">
+        <div class="connectionLogo">
+            <i class="material-icons rotate">cached</i>
+        </div><form action="{% url "users.views.connect" %}" method="get" class="connectionForm">
+            <div class="connectionPresentation">
+                <h2>En maintenance</h2>
+                <p>Désolé mais le site est actuellement en maintenance. Nous mettons tout en place pour vous afficher cette page dans les plus brefs délais mais ce n'est pas possible pour le moment. Si vous êtes membre vous pouvez vous connecter ou bien revenir plus tard.<br>Merci ;-)</p>
+            </div>
+            <button type="submit" class="submitButton" title="Se connecter">
+                <i class='material-icons'>vpn_key</i>
+            </button>
+        </form>
+    </div>
+</body>
+</html>

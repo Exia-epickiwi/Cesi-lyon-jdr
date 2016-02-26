@@ -1,0 +1,146 @@
+section{
+    width: 90vw;
+    margin: auto;
+    padding-top: 75px;
+}
+
+section.drag{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: move;
+}
+
+section > h2{
+    width: 100%;
+    text-align: center;
+    color: #2196f3;
+    font-size: 50px;
+    padding-bottom: 25px;
+    font-weight: lighter;
+}
+
+section > h2 a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.projectList{
+    width: 50%;
+    margin: auto;
+}
+
+.project{
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    text-decoration: none;
+}
+
+.project h3, .project .progression{
+    font-size: 30px;
+    line-height: 40px;
+    height: 40px;
+    font-weight: lighter;
+    position: relative;
+    z-index: 1;
+}
+
+.project h3{
+    width: 100%;
+    color: #f44336;
+}
+
+.project .progression{
+    color: #3c3c3c;
+    float: right;
+}
+
+.project .progressionBar{
+    width: 100%;
+    height: 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #e4eaff;
+    position: relative;
+    top: -5px;
+}
+
+.project .progressionBar .bar{
+    height: 100%;
+    width: 0%;
+    background-color: #2196f3;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: all ease-out 1s ;
+    -moz-transition: all ease-out 1s ;
+    -ms-transition: all ease-out 1s ;
+    -o-transition: all ease-out 1s ;
+    transition: all ease-out 1s ;
+}
+
+.progressionBar .cursor{
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-left: -10px;
+    margin-bottom: -7px;
+    z-index: 100;
+    -webkit-transition: 1s ease-out all;
+    -moz-transition: 1s ease-out all;
+    -ms-transition: 1s ease-out all;
+    -o-transition: 1s ease-out all;
+    transition: 1s ease-out all;
+    cursor: grab;
+    border: 3px solid #2196f3;
+}
+
+.project.move .progressionBar *{
+    -webkit-transition: none;
+    -moz-transition: none ;
+    -ms-transition: none ;
+    -o-transition: none ;
+    transition: none ;
+}
+
+.progressionBar .cursor:active{
+    cursor: move;
+}
+
+.move .progressionBar .cursor{
+    background-color: #f44336;
+}
+
+@media screen and (max-width: 1000px) {
+    .projectList{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    section{
+        padding-top: 0;
+    }
+
+    .project h3{
+        font-size: 8vw;
+    }
+
+    .project{
+        margin-bottom: 10vh;
+    }
+
+    section > h2{
+        font-size: 10vw
+    }
+}

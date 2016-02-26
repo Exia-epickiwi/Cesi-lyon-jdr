@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    {{ article.title }} - {{ request.settings.siteName }}
+{% endblock %}
+{% block head %}
+        <link rel="stylesheet" href="{% static "css/wiki.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/markdown.css" %}"/>
+{% endblock %}
+{%  block content %}
+    <div class="articleHeader">
+        <h2>{{ article.title }}</h2>
+        <nav>
+            <div class="navActions">
+                {% if request.user.is_authenticated %}
+                <span class="headerNavElement"><a href="{% url "wiki.views.editArticle" article.slug %}"><i class="material-icons">mode_edit</i></a></span>
+                {% endif %}
+            </div>
+            <div class="navInfos">
+                <span class="headerNavElement">{{ article.slug }}</span>
+            </div>
+        </nav>
+    </div>
+    <article class="summary" id="summaryWikiWrapper">
+    {# Summary #}
+        <div class="sliderSummary" id="summaryWiki">
+
+        </div>
+    </article>{%  autoescape off %}<article class="content mdFormated" id="contentContainer">
+    {# Content #}
+    {{ article.formatedContent }}
+    </article>{% endautoescape %}<article class="comments" id="commentsContainer">
+    {# Comments #}
+    <nav>
+        <a href="#" class="messgaesAction expendMessages" id="expendMessages"><i class="material-icons">keyboard_arrow_left</i></a>
+        {% if request.user.is_authenticated %}
+        <a href="#" class="messageAction actionRight newMessage" id="newMessage"><i class="material-icons">add</i></a>
+        {% endif %}
+    </nav>
+    {% if request.user.is_authenticated %}
+    <div class="message hidden" id="newMessageForm">
+        <form action="{% url "wiki.views.showArticle" slug %}" method="post">
+            {% csrf_token %}
+            {{ addMessageForm.as_p }}
+            <input type="submit" value="Envoyer" />
+        </form>
+    </div>
+    {% endif %}
+    {% for message in article.baseMessages %}
+        <div class="message">
+            <h5>
+                {% if message.author.first_name %}{{ message.author.first_name }}{% endif %}
+                {% if message.author.last_name %}{{ message.author.last_name }}{% endif %}
+                {% if not message.author.first_name and not message.author.last_name %}{{ message.author.username }}{% endif %}
+            </h5>
+            <p>{{ message.content }}</p>
+            {% for reply in message.replys %}
+            <div class="replyMessage">
+                <h5>
+                    {% if reply.author.first_name %}{{ reply.author.first_name }}{% endif %}
+                    {% if reply.author.last_name %}{{ reply.author.last_name }}{% endif %}
+                    {% if not reply.author.first_name and not reply.author.last_name %}{{ reply.author.username }}{% endif %}
+                </h5>
+                <p>{{ reply.content }}</p>
+            </div>
+            {% endfor %}
+        </div>
+     {% empty %}
+        <h3 class="empty">Aucun message</h3>
+        <h4 class="emptyMore">Cliquez sur <i class="material-icons">add</i> ci-dessus pour en ajouter un</h4>
+    {% endfor %}
+    </article>
+{%  endblock %}
+{% block script %}
+<script src="{% static "js/wikiArticle.js" %}"></script>
+    <script src="{% static "js/markdown.js" %}"></script>
+{% endblock %}

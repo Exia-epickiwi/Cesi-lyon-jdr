@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+        <link rel="stylesheet" href="{% static "css/wiki.css" %}"/>
+{% endblock %}
+{%  block content %}
+    <h1>Bienvenue sur le site de la comission jeux de role du cesi lyon</h1>
+    <p>Nous somment actuellement le {{ date.date }} et il est {{ date.time }}</p>
+    <p>Il y a {{ articlesNumber }} article{{ articlesNumber|pluralize }} sur le wiki</p>
+{% endblock %}

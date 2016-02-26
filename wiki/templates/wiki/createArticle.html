@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Création d'un article - {{ request.settings.siteName }}</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="{% static "css/fonts.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/icons.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/reset.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/global.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/editArticle.css" %}"/>
+</head>
+<body>
+    <form action="{% url "wiki.views.createArticle" slug %}" method="post">
+        {% csrf_token %}
+        <h2 class="editedArticle">{{ slug }}</h2>
+        <div class="contentWrapper create">
+            <input placeholder="{{ form.title.label }}" class="title" name="{{ form.title.html_name }}" {% if form.title.value %}value="{{ form.title.value }}"{% endif %}/>
+            <textarea class="content" name="{{ form.content.html_name }}" placeholder="Contenu">{% if form.content.value %}{{ form.content.value }}{% endif %}</textarea>
+        </div>
+        <button class="submit" type="submit" title="Créer">
+            <i class="material-icons">done</i>
+        </button>
+    </form>
+</body>
+</html>

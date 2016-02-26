@@ -1,0 +1,160 @@
+
+.mdFormated > *{
+    color: #3c3c3c;
+    margin-bottom: 15px;
+}
+
+.mdFormated a{
+    color: #226699;
+    text-decoration: none;
+}
+
+.mdFormated h1, .mdFormated h2, .mdFormated h3, .mdFormated h4, .mdFormated h5{
+    padding-left: 1vw;
+    clear: both;
+}
+
+.mdFormated h1{
+    font-size: 35px;
+    color: #f44336;
+    font-weight: lighter;
+}
+
+.mdFormated h2{
+    font-size: 30px;
+    color: #2196f3;
+    font-weight: lighter;
+}
+
+.mdFormated h3{
+    font-size: 25px;
+    color: #64b5f6;
+}
+
+.mdFormated h4{
+    font-size: 20px;
+    color: #9e9e9e;
+}
+
+.mdFormated h5, .mdFormated h6{
+    font-size: 20px;
+    color: #e0e0e0;
+}
+
+.mdFormated blockquote{
+    padding-left: 10px;
+    border-left: 5px solid #e0e0e0;
+}
+
+.mdFormated p{
+    text-align: justify;
+}
+
+.mdFormated pre{
+    width: calc(90% - 10px);
+    margin: auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #bbdefb;
+    border: solid 1px #2196f3;
+    padding: 5px;
+    margin-bottom: 10px;
+    overflow: auto;
+}
+
+.mdFormated strong{
+    font-weight: bold;
+}
+
+.mdFormated em{
+    font-style: italic;
+}
+
+.mdFormated ul, .mdFormated ol{
+    margin-left: 15px;
+    padding-top: 5px;
+}
+
+.mdFormated ul{
+    list-style-type: disc;
+}
+
+.mdFormated ol{
+    list-style-type: decimal;
+}
+
+.mdFormated ul li{
+    padding-bottom: 5px;
+    margin: 0;
+}
+
+.mdFormated ol li{
+    margin: 0;
+}
+
+.image.even{
+    float: right;
+    margin-left: 10px;
+}
+
+.image.odd{
+    float: left;
+    margin-right: 10px;
+}
+
+.image{
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    overflow: hidden;
+    background-color: white;
+    position: relative;
+    max-width: 40%;
+    margin-bottom: 10px;
+}
+
+.image .imageInfo{
+    height: 50px;
+    line-height: 50px;
+    position: absolute;
+    bottom: -100%;
+    -webkit-transition: 0.5s ease-out all;
+    -moz-transition: 0.5s ease-out all ;
+    -ms-transition: 0.5s ease-out all ;
+    -o-transition: 0.5s ease-out all ;
+    transition: 0.5s ease-out all ;
+    background-color: rgba(0,0,0,0.8);
+    width: calc(100% - 20px);
+    padding-left: 10px;
+    padding-right: 10px;
+    color: rgba(255,255,255,0.8);
+    opacity: 0;
+    white-space: nowrap;
+}
+
+.image img{
+    margin-bottom: -2px;
+    width: 100%;
+}
+
+.image:hover .imageInfo{
+    bottom: 0;
+    opacity: 1;
+}
+
+@media screen and (max-width: 1000px) {
+    .image.odd, .image.even{
+        float: none;
+    }
+
+    .mdFormated .image{
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .image .imageInfo{
+        bottom: 0;
+        opacity: 0.5;
+    }
+}

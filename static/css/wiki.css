@@ -1,0 +1,387 @@
+section{
+    position: relative;
+    background-color: white;
+    width: 98vw;
+    margin: auto;
+    padding-top: 65px;
+    min-height: calc(100vh - 165px);
+}
+
+section:last-child{
+    min-height: calc(100vh - 190px);
+}
+
+section .articleHeader{
+    width: 100%;
+    border-bottom: solid 1px rgba(33,150,243,0.5);
+    margin-bottom: 25px;
+}
+
+section .articleHeader h2{
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    font-weight: lighter;
+    color: #2196f3;
+}
+
+section .articleHeader.noNav{
+    padding-bottom: 25px;
+}
+
+section .articleHeader nav{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+}
+
+section .articleHeader nav div{
+    display: inline-block;
+}
+
+section .articleHeader nav .navInfos{
+    float: right;
+}
+
+section .articleHeader nav .navInfos .headerNavElement{
+    margin: 0 5px;
+    padding: 0 5px;
+    background-color: rgba(33,150,243,0.2);
+    height: 100%;
+    display: inline-block;
+    color: #2196f3;
+}
+
+section .articleHeader nav a {
+    color: #9f9f9f;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+section .articleHeader nav a i{
+    font-size: inherit;
+}
+
+section article.content{
+    width: 65%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+section article.content.reduced{
+    width: 32.5%;
+}
+
+section article.comments{
+    width: 19%;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 1%;
+    background-color: white;
+}
+
+section article.comments h3.empty{
+    text-align: center;
+    margin-top: 25vh;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: #9e9e9e;
+    width: 100%;
+    font-weight: lighter;
+}
+
+section article.comments h4.emptyMore{
+    text-align: center;
+    font-size: 15px;
+    color: #9e9e9e;
+}
+
+section article.comments.expended{
+    width: 51.5%;
+}
+
+section article.content, section article.comments{
+    -webkit-transition: all ease-out 0.5s;
+    -moz-transition: all ease-out 0.5s ;
+    -ms-transition: all ease-out 0.5s ;
+    -o-transition: all ease-out 0.5s ;
+    transition: all ease-out 0.5s ;
+}
+
+section article.summary{
+    width: 13%;
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 2%;
+    position: relative;
+}
+
+section article.summary .sliderSummary{
+    position:absolute;
+    left: 0;
+    top: 0;
+    width: 90%;
+}
+
+section article.summary .sliderSummary > *{
+    width: calc(98% - 3px);
+    padding-right: 2%;
+    text-align: right;
+    border-right: solid #9f9f9f 3px;
+    margin-bottom: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    color: #3c3c3c;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out ;
+    -ms-transition: all 0.2s ease-out ;
+    -o-transition: all 0.2s ease-out ;
+    transition: all 0.2s ease-out ;
+}
+
+section article.summary .sliderSummary > *:hover{
+    -webkit-transform: translateX(-2.5%);
+    -moz-transform: translateX(-2.5%);
+    -ms-transform: translateX(-2.5%);
+    -o-transform: translateX(-2.5%);
+    transform: translateX(-2.5%);
+}
+
+section article.summary .sliderSummary a{
+    color: inherit;
+    text-decoration: none;
+    font-size: inherit;
+}
+
+section article.summary .sliderSummary h1{
+    font-size: 20px;
+    color: rgba(244, 67, 54, 0.8);
+    border-color: rgba(244, 67, 54, 0.8);
+    font-weight: lighter;
+}
+
+section article.summary .sliderSummary h1:not(:first-child){
+    margin-top: 10px;
+}
+
+section article.summary .sliderSummary h2{
+    font-size: 18px;
+    color: rgba(33, 150, 243, 0.8);
+    border-color: rgba(33, 150, 243, 0.8);
+    font-weight: lighter;
+}
+
+section article.summary .sliderSummary h3, section article.summary .sliderSummary h4, section article.summary .sliderSummary h5, section article.summary .sliderSummary h6{
+    font-size: 16px;
+    color: rgba(33, 150, 243, 0.5);
+    border-color: rgba(33, 150, 243, 0.5);
+}
+
+section article.summary .sliderSummary h5, section article.summary .sliderSummary h6{
+    color: #9f9f9f;
+}
+
+section article.comments .message{
+    border-left: solid #64b5f6 3px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    width: calc(99% - 6px);
+    padding-left: 3px;
+    font-size: 13px;
+    color: #3c3c3c;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: all 0.5s ease-out;
+}
+
+section article.comments .message > h5{
+    color: #64b5f6;
+    padding-left: 5px;
+    margin-bottom: 5px;
+}
+
+section article.comments .message > p{
+    text-align: justify;
+}
+
+section article.comments .message .replyMessage{
+    width: 95%;
+    margin-left: 5%;
+    margin-top: 5px;
+}
+
+section article.comments .message .replyMessage p, section article.comments .message .replyMessage h5{
+    display: inline;
+}
+
+section article.comments .message .replyMessage h5{
+    color: #64b5f6;
+}
+
+section article.comments .message .replyMessage h5::after{
+    content: " : "
+}
+
+section article.comments .message form{
+    width: 100%;
+    display: block;
+}
+
+section article.comments .message form *{
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+section article.comments .message form input[type="text"], section article.comments .message form textarea{
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    border-bottom: solid 1px #64b5f6;
+}
+
+section article.comments .message form textarea{
+    height: 30px;
+}
+
+section article.comments .message form input[type="submit"]{
+    color: #64b5f6;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+section article.comments .message form input[type="submit"]:hover{
+    background-color: #64b5f6;
+    color: #bbdefb;
+}
+
+section article.comments .message form label{
+    padding-bottom: 5px;
+    color: #64b5f6;
+}
+
+section article.comments nav a, section article.comments nav a i{
+    color: #9f9f9f;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+section article.comments nav *{
+    transition: all 0.5s ease-out;
+}
+
+section article.comments nav .newMessage.showing{
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+section article.comments nav .expendMessages.reverse i{
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+section article.comments nav a.actionRight{
+    float: right;
+}
+
+section article.comments .message.hidden{
+    opacity: 0;
+    display: none;
+}
+
+.createWrapper{
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.createLogo, .createForm{
+    width: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.createLogo {
+    font-size: 50vh;
+    color: #2196f3;
+}
+
+.createForm .submitButton{
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: none;
+    border: none;
+    outline: none;
+    color: #2196f3;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.createPresentation{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.createPresentation h2{
+    font-size: 35px;
+    margin-bottom: 15px;
+    font-weight: lighter;
+    color: #3c3c3c;
+}
+
+.createPresentation p{
+    font-size: 15px;
+    color: #9e9e9e;
+}
+
+@media screen and (max-width: 1000px) {
+
+    section{
+        width: 90vw;
+    }
+
+    section article.summary{
+        display: none;
+    }
+
+    section article.content{
+        width: 100%;
+    }
+
+    section article.comments{
+        width: 100%;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+    }
+
+    section article.comments nav a i{
+        font-size: 7vh;
+    }
+
+    section article.comments nav a.expendMessages{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+}
