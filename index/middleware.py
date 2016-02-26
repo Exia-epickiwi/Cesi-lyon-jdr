@@ -1,3 +1,4 @@
+from django.core.exceptions import ObjectDoesNotExist
 from index import models as indexModels
 from django.shortcuts import render
 from django.core.urlresolvers import resolve, Resolver404
@@ -7,7 +8,10 @@ class maintenanceMiddleware(object):
 
     def process_request(self,request):
 
-        maintenance = indexModels.Setting.objects.get(key="maintenance")
+        try:
+            maintenance = indexModels.Setting.objects.get(key="maintenance")
+        except ObjectDoesNotExist:
+            return None
 
         if maintenance.value == "1" and not request.user.is_authenticated():
 
