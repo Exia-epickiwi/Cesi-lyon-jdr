@@ -31,7 +31,7 @@ class Article(models.Model):
         modif.article = self
         modif.save()
 
-    def __str__(self):
+    def __unicode__(self):
         """Renvoie le titre de l'article"""
 
         return self.title
@@ -43,7 +43,7 @@ class Modification(models.Model):
     newContent = models.TextField(verbose_name="Contenu modifié")
     date = models.DateTimeField(auto_now_add=True,verbose_name="Date")
 
-    def __str__(self):
+    def __unicode__(self):
         """Renvoie l'auteur de la modification"""
 
         return "Modification de "+self.article.__str__()+" par "+self.author
@@ -53,7 +53,7 @@ class Redirection(models.Model):
     slug = models.CharField(max_length=255,verbose_name="Identifiant")
     article = models.ForeignKey(Article,verbose_name="Article cible")
 
-    def __str__(self):
+    def __unicode__(self):
         """Renvoie le slug"""
 
         return self.slug
@@ -66,7 +66,7 @@ class Message(models.Model):
     article = models.ForeignKey(Article,verbose_name="Article associé")
     reply = models.ForeignKey('self',verbose_name="Message de base",default=None,null=True)
 
-    def __str__(self):
+    def __unicode__(self):
         """Renvoie le contenu"""
 
         return self.content

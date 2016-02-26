@@ -10,7 +10,7 @@ class Project(models.Model):
     wikiArticle = models.ForeignKey(wikiModels.Article,verbose_name="Article de description")
     slug = models.CharField(max_length=255,verbose_name="Identifiant")
 
-    def __str__(self):
+    def __unicode__(self):
         """Renvoie le nom du projet"""
 
         return self.name
@@ -43,7 +43,7 @@ class Task(models.Model):
     progression = models.IntegerField(verbose_name="Progression")
     project = models.ForeignKey(Project,verbose_name="Projet associé")
 
-    def __str__(self):
+    def __unicode__(self):
         """Renvoie le nom de la tache"""
 
         return self.name
