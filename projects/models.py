@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from wiki import models as wikiModels
 from django.utils.text import slugify

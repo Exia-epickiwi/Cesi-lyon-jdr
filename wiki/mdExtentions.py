@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from markdown.extensions import Extension
 from django.core import urlresolvers
 import re

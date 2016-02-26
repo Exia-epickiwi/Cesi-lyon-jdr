@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.core.exceptions import ObjectDoesNotExist
 from index import models as indexModels
 from django.shortcuts import render

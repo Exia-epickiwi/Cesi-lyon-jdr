@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import markdown
 from django.http import Http404
 from django.shortcuts import render,redirect

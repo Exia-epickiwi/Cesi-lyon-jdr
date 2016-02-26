@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import markdown
 from django.shortcuts import render,redirect
 from django.core.exceptions import ObjectDoesNotExist

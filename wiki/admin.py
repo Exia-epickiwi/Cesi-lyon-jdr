@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.contrib import admin
 from wiki.models import Article, Redirection, Message, Modification
 
