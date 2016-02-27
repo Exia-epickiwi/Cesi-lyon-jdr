@@ -382,8 +382,6 @@ footer{
     padding-right: 10px;
 }
 
-.stackMessages
-
 @media screen and (max-width: 600px) {
     header .logoContainer, header::before, header::after {
         display: none;
@@ -403,5 +401,9 @@ footer{
         left: 0;
         top: 0;
         text-align: center;
+    }
+
+    .stackMessages .message{
+        width: 90%;
     }
 }

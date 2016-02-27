@@ -380,6 +380,14 @@ section article.comments .message.hidden{
     section article.comments nav a.expendMessages{
         display: none;
     }
+
+    .createLogo{
+        display: none;
+    }
+
+    .createForm{
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 600px) {
