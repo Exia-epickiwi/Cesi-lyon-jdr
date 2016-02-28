@@ -8,7 +8,7 @@
 <div class="nextEvent{% if not nextEvent.background %} black{% endif %}">
     <div class="nextTitle centeredEvent">Evènement à venir</div>
     <h1 class="centeredEvent">{{ nextEvent.title }}</h1>
-    <h2 class="centeredEvent">Le {{ nextEvent.date.date }} à {{ nextEvent.date.time }}</h2>
+    <h2 class="centeredEvent">{{ nextEvent.date|naturaltime }}</h2>
     <h3 class="centeredEvent">{{ nextEvent.shortDescription }}</h3>
     {% if nextEvent.background %}
        <img class="background" src="{{ nextEvent.background.url }}" />
