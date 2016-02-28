@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static user_extras%}
 {% block title %}
     {{ article.title }} - {{ request.settings.siteName }}
 {% endblock %}
@@ -49,17 +49,13 @@
     {% for message in article.baseMessages %}
         <div class="message">
             <h5>
-                {% if message.author.first_name %}{{ message.author.first_name }}{% endif %}
-                {% if message.author.last_name %}{{ message.author.last_name }}{% endif %}
-                {% if not message.author.first_name and not message.author.last_name %}{{ message.author.username }}{% endif %}
+                {{ message.author|big_user_name }}
             </h5>
             <p>{{ message.content }}</p>
             {% for reply in message.replys %}
             <div class="replyMessage">
                 <h5>
-                    {% if reply.author.first_name %}{{ reply.author.first_name }}{% endif %}
-                    {% if reply.author.last_name %}{{ reply.author.last_name }}{% endif %}
-                    {% if not reply.author.first_name and not reply.author.last_name %}{{ reply.author.username }}{% endif %}
+                    {{ reply.author|big_user_name }}
                 </h5>
                 <p>{{ reply.content }}</p>
             </div>

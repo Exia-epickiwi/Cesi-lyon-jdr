@@ -1,4 +1,4 @@
-{% load static %}
+{% load static user_extras%}
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,10 +25,7 @@
             <div class="navRight">
                 <span class="navElement"><a href="{% url "wiki.views.home" %}">Wiki</a></span>
                 {% if not request.user.is_authenticated %}<span class="navElement"><a href="{% url "users.views.connect" %}">Connexion</a></span>{% endif %}
-                {% if request.user.is_authenticated %}<span class="navElement"><a href="{% url "users.views.disconnect" %}">
-                    {% if request.user.first_name %}{{ request.user.first_name }}{% endif %}
-                    {% if request.user.last_name %}{{ request.user.last_name }}{% endif %}
-                    {% if not request.user.first_name and not request.user.last_name %}{{ request.user.username }}{% endif %}
+                {% if request.user.is_authenticated %}<span class="navElement"><a href="{% url "users.views.disconnect" %}">{{ request.user|big_user_name }}
                 </a></span>{% endif %}
             </div>
         </nav>
