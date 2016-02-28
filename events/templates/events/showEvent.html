@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static user_extras %}
+{% load static user_extras humanize %}
 {% block headerClass %}transparent{% endblock %}
 {% block head %}
         <link rel="stylesheet" href="{% static "css/event.css" %}"/>
@@ -10,7 +10,8 @@
 {% block content %}
     <div class="presentation {% if not event.background %}defaultBackground{% endif %}">
         <h1>{{ event.title }}</h1>
-        <div class="date" id="dateField" data-timestamp="{{ event.date.timestamp }}">Le {{ event.date.date }} à {{ event.date.time }}</div>
+        <div class="date" id="dateField" data-timestamp="{{ event.date.timestamp }}">{{ event.date|naturaltime }}</div>
+        <div class="absoluteDate" data-timestamp="{{ event.date.timestamp }}">Le {{ event.date.date }} à {{ event.date.time }}</div>
         <div class="shortDescription">{{ event.shortDescription }}</div>
         {% if event.background %}
         <img class="background" src="{{ event.background.url }}" />
@@ -33,7 +34,7 @@
         {% endif %}
         {% for comment in event.comments %}
             <div class="comment">
-                <div class="date relativeDate" data-timestamp="{{ comment.date.timestamp }}">Le {{ comment.date.date }} à {{ comment.date.time }}</div>
+                <div class="date relativeDate" data-timestamp="{{ comment.date.timestamp }}">{{ comment.date|naturaltime }}</div>
                 <div class="name">{{ comment.author|big_user_name }}</div>
                 <div class="content">{{ comment.content }}</div>
             </div>
