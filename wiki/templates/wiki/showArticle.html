@@ -67,7 +67,9 @@
         </div>
      {% empty %}
         <h3 class="empty">Aucun message</h3>
+        {% if request.user.is_authenticated %}
         <h4 class="emptyMore">Cliquez sur <i class="material-icons">add</i> ci-dessus pour en ajouter un</h4>
+        {% endif %}
     {% endfor %}
     </article>
 {%  endblock %}
