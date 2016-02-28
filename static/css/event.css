@@ -166,12 +166,13 @@ article.comments{
 article.comments .comment{
     width: calc(80% - 22px);
     margin: auto;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     padding: 10px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
     border: solid #64b5f6 2px;
+    position: relative;
 }
 
 article.comments .comment .name{
@@ -191,6 +192,28 @@ article.comments h2{
     padding-left: 5%;
 }
 
+article.comments .comment .addcontent{
+    border: none;
+    background: none;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100px;
+    font-size: 16px;
+    padding: 0;
+
+}
+
+article.comments .comment button{
+    border:  none;
+    color: #2196f3;
+    background: none;
+    font-size: 45px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 1000px) {
     article{
         padding-left: 5vw;
@@ -201,6 +224,14 @@ article.comments h2{
     article.comments .comment{
         width: calc(100% - 22px);
         margin-bottom: 25px;
+    }
+
+    article.comments .comment .name{
+        font-size: 5vw;
+    }
+
+    article.comments .comment .date{
+        font-size: 3.5vw;
     }
 
     .presentation h1{

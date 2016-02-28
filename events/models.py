@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from markdown import markdown
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Event(models.Model):
@@ -29,7 +30,7 @@ class Event(models.Model):
 
 class Comment(models.Model):
 
-    author = models.CharField(max_length=255,verbose_name="Auteur")
+    author = models.ForeignKey(User,verbose_name="Auteur")
     content = models.TextField(verbose_name="Contenu")
     date = models.DateTimeField(auto_now_add=True,verbose_name="Date")
     event = models.ForeignKey(Event,verbose_name="Evenement associé")

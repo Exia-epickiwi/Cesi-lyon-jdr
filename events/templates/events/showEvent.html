@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static user_extras %}
 {% block headerClass %}transparent{% endblock %}
 {% block head %}
         <link rel="stylesheet" href="{% static "css/event.css" %}"/>
@@ -34,10 +34,22 @@
         {% for comment in event.comments %}
             <div class="comment">
                 <div class="date relativeDate" data-timestamp="{{ comment.date.timestamp }}">Le {{ comment.date.date }} à {{ comment.date.time }}</div>
-                <div class="name">{{ comment.author }}</div>
+                <div class="name">{{ comment.author|big_user_name }}</div>
                 <div class="content">{{ comment.content }}</div>
             </div>
         {% endfor %}
+        {% if form %}
+            <div class="comment">
+                <form method="post" action="{% url "events.views.showEvent" event.slug %}">
+                {% csrf_token %}
+                    <div class="name">Ajouter un commentaire</div>
+                    <textarea class="addcontent content" name="{{ form.content.html_name }}" placeholder="{{ form.content.label }}">{% if form.content.value %}{{ form.content.value }}{% endif %}</textarea>
+                    <button type="submit">
+                        <i class="material-icons">check</i>
+                    </button>
+                </form>
+            </div>
+        {% endif %}
     </article>
 {% endblock %}
 {% block script %}

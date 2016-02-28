@@ -6,6 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from events.models import Event
 from wiki.models import Article
 from datetime import datetime
+from events import forms
 
 # Create your views here.
 def home(request):
@@ -20,5 +21,17 @@ def showEvent(request,slug):
         event = Event.objects.get(slug=slug)
     except ObjectDoesNotExist:
         raise Http404
+
+    if request.user.is_authenticated():
+
+        if request.method == "POST":
+            form = forms.addComment(request.POST)
+            if form.is_valid():
+                comment = form.save(commit=False)
+                comment.author = request.user
+                comment.event = event
+                comment.save()
+        else:
+            form = forms.addComment()
 
     return render(request, 'events/showEvent.html', locals())
