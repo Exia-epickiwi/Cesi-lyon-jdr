@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static humanize %}
 {% block title %}
     Les projets - {{ request.settings.siteName }}
 {% endblock %}
@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="{% static "css/projects.css" %}"/>
 {% endblock %}
 {%  block content %}
-    <h2>{{ projectNumber }} projet{{ projectNumber|pluralize }} en cours</h2>
+    <h2>{{ projectNumber|apnumber|capfirst }} projet{{ projectNumber|pluralize }} en cours</h2>
     <article class="projectList">
     {% for project in projects %}
         <a href="{% url "projects.views.showProject" project.slug %}" class="project" data-progression="{{ project.progression }}">

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static humanize %}
 {% block head %}
     <link rel="stylesheet" href="{% static "css/home.css" %}"/>
     <link rel="stylesheet" href="{% static "css/markdown.css" %}"/>
@@ -24,7 +24,7 @@
     </div>
     </section>
     <section class="blueprint projects">
-        <h2>Projet{{ projects.count|pluralize }} en cours</h2>
+        <h2>{{ projects.count|apnumber|capfirst }} Projet{{ projects.count|pluralize }} en cours</h2>
         {% for project in projects %}
             <a href="{% url "projects.views.showProject" project.slug %}" class="project" data-progression="{{ project.progression }}">
                 <div class="progression">{{ project.progression }}%</div>
