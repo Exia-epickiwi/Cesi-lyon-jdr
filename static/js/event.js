@@ -1,4 +1,4 @@
-$(function(){
+/*$(function(){
     moment.locale("fr-FR");
     var $dateField = $("#dateField");
 
@@ -20,4 +20,4 @@ function setRelativeDates(){
         $element.html(elementDate.fromNow());
     })
     setTimeout(setRelativeDates,1000);
-}
+}*/
