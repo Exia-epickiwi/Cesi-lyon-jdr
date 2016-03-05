@@ -6,6 +6,7 @@
     padding: 1vh 1vw;
     height: 98vh;
     z-index: 1;
+    overflow: hidden;
 }
 
 .contentWrapper textarea{
