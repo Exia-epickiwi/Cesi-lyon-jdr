@@ -382,6 +382,16 @@ footer{
     padding-right: 10px;
 }
 
+.emptyError{
+    width: 100%;
+    margin-top: 25vh;
+    text-align: center;
+    font-size: 50px;
+    color: #9e9e9e;
+    opacity: 0.5;
+    font-weight: lighter;
+}
+
 @media screen and (max-width: 600px) {
     header .logoContainer, header::before, header::after {
         display: none;
@@ -406,4 +416,5 @@ footer{
     .stackMessages .message{
         width: 90%;
     }
+
 }

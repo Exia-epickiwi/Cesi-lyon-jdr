@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{% static "css/markdown.css" %}"/>
 {% endblock %}
 {% block content %}
+    {% if nextEvent %}
 <div class="nextEvent{% if not nextEvent.background %} black{% endif %}">
     <div class="nextTitle centeredEvent">Evènement à venir</div>
     <h1 class="centeredEvent">{{ nextEvent.title }}</h1>
@@ -17,6 +18,9 @@
     {% endif %}
     <a class="more centeredEvent" href="{% url "events.views.showEvent" nextEvent.slug %}">En savoir +</a>
 </div>
+    {% else %}
+        <div class="noEvent"></div>
+    {% endif %}
     <div class="presentation mdFormated">
     {% autoescape off %}
         {{ presentation.formatedContent }}

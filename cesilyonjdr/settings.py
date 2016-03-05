@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'hb#x*3pm#pzp6w2e@izc#y0pg9wtqzq-av+-knb^b)=n&$5(rc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -32,6 +32,12 @@ ADMINS = (
 )
 
 SERVER_EMAIL = "error@cesilyonjdr.fr"
+
+EMAIL_HOST = "mail.gandi.net"
+EMAIL_HOST_USER = SERVER_EMAIL
+EMAIL_HOST_PASSWORD = "uj4w485f"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 # Application definition
 

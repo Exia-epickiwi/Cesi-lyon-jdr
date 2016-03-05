@@ -128,11 +128,15 @@ section article.event .infos .comments i{
     text-decoration: underline;
 }
 
+.emptyError{
+    margin-left: 25%;
+    width: 75%;
+}
 
 @media screen and (max-width: 1000px) {
     section{
         width: 90vw;
-        padding-top: 10px;
+        padding: 0;
     }
 
     section::before{
@@ -169,6 +173,11 @@ section article.event .infos .comments i{
 
     section article.event .date .dateText, section article.event .date .timeText{
         display: inline;
+    }
+
+    .emptyError{
+        width: auto;
+        margin-left: 0;
     }
 }
 

@@ -25,6 +25,13 @@
             </div>
         </a>
         </article>
+
+    {% empty %}
+
+        <div class="emptyError">
+            Aucun évènement à venir
+        </div>
+
     {% endfor %}
 
 {% endblock %}

@@ -25,6 +25,10 @@ section.blueprint{
     background-color: black;
 }
 
+.noEvent{
+    padding-top: 50px;
+}
+
 .nextEvent .background{
     position: absolute;
     left: 0;
