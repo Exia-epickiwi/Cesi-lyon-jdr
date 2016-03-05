@@ -307,6 +307,14 @@ section article.comments .message.hidden{
     display: none;
 }
 
+section article.comments.noMessages{
+    display: none;
+}
+
+section article.content.noMessages{
+    width: 84%;
+}
+
 .createWrapper{
     width: 50vw;
     margin-left: auto;

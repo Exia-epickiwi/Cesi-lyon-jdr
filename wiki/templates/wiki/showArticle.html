@@ -26,10 +26,10 @@
         <div class="sliderSummary" id="summaryWiki">
 
         </div>
-    </article>{%  autoescape off %}<article class="content mdFormated" id="contentContainer">
+    </article>{%  autoescape off %}<article class="content mdFormated{% if article.baseMessages.count == 0 and not request.user.is_authenticated %} noMessages{% endif %}" id="contentContainer">
     {# Content #}
     {{ article.formatedContent }}
-    </article>{% endautoescape %}<article class="comments" id="commentsContainer">
+    </article>{% endautoescape %}<article class="comments{% if article.baseMessages.count == 0 and not request.user.is_authenticated %} noMessages{% endif %}" id="commentsContainer">
     {# Comments #}
     <nav>
         <a href="#" class="messgaesAction expendMessages" id="expendMessages"><i class="material-icons">keyboard_arrow_left</i></a>
