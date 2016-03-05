@@ -4,10 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$/static/css/wiki.css" line="171" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cd257b7-da55-4f5d-88d3-9f0fa19c913c" name="Default" comment="Resulution de problèmes d'édition d'articles">
+    <list default="true" id="7cd257b7-da55-4f5d-88d3-9f0fa19c913c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/wiki.css" afterPath="$PROJECT_DIR$/static/css/wiki.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wiki/templates/wiki/showArticle.html" afterPath="$PROJECT_DIR$/wiki/templates/wiki/showArticle.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cesilyonjdr/settings.py" afterPath="$PROJECT_DIR$/cesilyonjdr/settings.py" />
     </list>
     <ignored path="cesilyonjdr.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,31 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cesilyonjdr/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="showArticle.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wiki/templates/wiki/showArticle.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.0">
-              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wiki.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/css/wiki.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
-              <caret line="307" column="1" selection-start-line="307" selection-start-column="1" selection-end-line="307" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.4848485">
+              <caret line="105" column="28" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -119,7 +99,6 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/events/templates/events/showEvent.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/cesilyonjdr/settings.py" />
         <option value="$PROJECT_DIR$/index/templates/index/home.html" />
         <option value="$PROJECT_DIR$/index/views.py" />
         <option value="$PROJECT_DIR$/static/css/home.css" />
@@ -131,6 +110,7 @@
         <option value="$PROJECT_DIR$/wiki/templates/wiki/createArticle.html" />
         <option value="$PROJECT_DIR$/wiki/templates/wiki/showArticle.html" />
         <option value="$PROJECT_DIR$/static/css/wiki.css" />
+        <option value="$PROJECT_DIR$/cesilyonjdr/settings.py" />
       </list>
     </option>
   </component>
@@ -358,6 +338,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="events" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cesilyonjdr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cesilyonjdr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cesilyonjdr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -669,7 +663,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457182810869</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Non affichage des messages lorcequ'ils sont abscents">
+      <created>1457184066321</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1457184066321</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -724,7 +724,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Eradication de certaines erreurs" />
     <MESSAGE value="Resulution de problèmes d'édition d'articles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resulution de problèmes d'édition d'articles" />
+    <MESSAGE value="Non affichage des messages lorcequ'ils sont abscents" />
+    <option name="LAST_COMMIT_MESSAGE" value="Non affichage des messages lorcequ'ils sont abscents" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -908,14 +909,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27272728">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wiki/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.030303031">
@@ -1081,26 +1074,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cesilyonjdr/settings.py">
+    <entry file="file://$PROJECT_DIR$/static/css/wiki.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.14285715">
+          <caret line="301" column="17" selection-start-line="301" selection-start-column="17" selection-end-line="301" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wiki/templates/wiki/showArticle.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0">
+        <state vertical-scroll-proportion="0.2857143">
           <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/wiki.css">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="307" column="1" selection-start-line="307" selection-start-column="1" selection-end-line="307" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.121212125">
+          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cesilyonjdr/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4848485">
+          <caret line="105" column="28" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
           <folding />
         </state>
       </provider>
