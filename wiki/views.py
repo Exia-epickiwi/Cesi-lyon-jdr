@@ -55,12 +55,13 @@ def createArticle(request,slug):
             article.refreshSlug()
             article.save()
             article.makeModification(request.user)
-            if article.slug != slug:
+            print(slug)
+            if article.slug != slug and slug != "None":
                 redirection = Redirection()
                 redirection.slug = slug
                 redirection.article = article
                 redirection.save()
-            return redirect(showArticle,slug=slug)
+            return redirect(showArticle,slug=article.slug)
     else:
         form = CreateArticleForm()
 
