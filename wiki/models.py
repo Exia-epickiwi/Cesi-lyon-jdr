@@ -46,7 +46,7 @@ class Modification(models.Model):
     def __unicode__(self):
         """Renvoie l'auteur de la modification"""
 
-        return "Modification de "+self.article.__str__()+" par "+self.author
+        return "Modification de "+self.article.__unicode__()+" par "+self.author.username
 
 class Redirection(models.Model):
 
