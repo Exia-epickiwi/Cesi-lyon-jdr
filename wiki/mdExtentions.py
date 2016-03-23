@@ -8,7 +8,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from markdown.util import etree
 
 class inlineInternalLink(InlinePattern):
-    regex = r'\[\[([^\]|]+)(\|([^\]]+))?\]\]'
+    regex = r'\[\[([^\]|]+)(\|([^\]]+))\]\]'
 
     def handleMatch(self, m):
         url = urlresolvers.reverse("wiki-show",args=[m.group(2)])
@@ -26,7 +26,7 @@ class inlineInternalLink(InlinePattern):
         return el
 
 class inlineProjectLink(InlinePattern):
-    regex = r'!\[\[([^\]|]+)(\|([^\]]+))?\]\]'
+    regex = r'!\[\[([^\]|]+)(\|([^\]]+))\]\]'
 
     def handleMatch(self, m):
         url = urlresolvers.reverse("project-show",args=[m.group(2)])
@@ -44,7 +44,7 @@ class inlineProjectLink(InlinePattern):
         return el
 
 class inlineEventLink(InlinePattern):
-    regex = r'\?\[\[([^\]|]+)(\|([^\]]+))?\]\]'
+    regex = r'\?\[\[([^\]|]+)(\|([^\]]+))\]\]'
 
     def handleMatch(self, m):
         url = urlresolvers.reverse("event-show",args=[m.group(2)])
