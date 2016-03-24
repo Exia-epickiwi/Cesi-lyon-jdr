@@ -50,6 +50,12 @@
     text-align: justify;
 }
 
+.mdFormated:not(.noAlinea) p::before{
+    content: "";
+    width: 2vw;
+    display: inline-block;
+}
+
 .mdFormated pre{
     width: calc(90% - 10px);
     margin: auto;
