@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'hb#x*3pm#pzp6w2e@izc#y0pg9wtqzq-av+-knb^b)=n&$5(rc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -94,18 +94,18 @@ WSGI_APPLICATION = 'cesilyonjdr.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
 #    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'cesilyonjdr',
-#        'USER': 'hosting-db',
-#        'PASSWORD': 'avion64',
-#        'HOST': 'localhost',
-#        'PORT': '',
-#    }
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #}
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'cesilyonjdr',
+        'USER': 'hosting-db',
+        'PASSWORD': 'avion64',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
 }
 
 
