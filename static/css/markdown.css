@@ -11,7 +11,6 @@
 
 .mdFormated h1, .mdFormated h2, .mdFormated h3, .mdFormated h4, .mdFormated h5{
     padding-left: 1vw;
-    clear: both;
 }
 
 .mdFormated h1{
@@ -139,14 +138,18 @@
     white-space: nowrap;
 }
 
-.image img{
+.mdFormated .image img{
     margin-bottom: -2px;
     width: 100%;
 }
 
-.image:hover .imageInfo{
+.mdFormated .image:hover .imageInfo{
     bottom: 0;
     opacity: 1;
+}
+
+.mdFormated img{
+    max-width: 100%;
 }
 
 @media screen and (max-width: 1000px) {
