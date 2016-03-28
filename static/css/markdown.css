@@ -47,6 +47,7 @@
 
 .mdFormated p{
     text-align: justify;
+    line-height: 25px;
 }
 
 .mdFormated:not(.noAlinea) p::before{
