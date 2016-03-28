@@ -19,6 +19,7 @@ build
 .pydevproject
 .settings
 .idea
+.idea/*
 
 # Linux Editors
 *~
@@ -39,3 +40,6 @@ tramp
 # Windows
 Thumbs.db
 Desktop.ini
+
+#settings
+cesilyonjdr/settings.py
