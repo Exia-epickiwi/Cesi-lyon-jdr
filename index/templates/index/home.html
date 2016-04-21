@@ -43,7 +43,7 @@
         {% for article in articles %}
             <article>
                 <h2>{{ article.title }}</h2>
-                <div class="meta">{{ article.author|big_user_name }} {{ article.date|naturaltime }}</div>
+                <div class="meta">{{ article.author|big_user_name }} <span title="{{ article.date|date:"D d F Y H:i"}}">{{ article.date|naturaltime }}</span></div>
                 <div class="mdFormated articleContent">
                     {% autoescape off %}
                     {{ article.formatedContent }}

@@ -77,7 +77,6 @@ class inlineMediaInsert(InlinePattern):
     regex = r'\$\[\[([^\]\|]+)(\|([^\]]+))?\]\]'
 
     def handleMatch(self, m):
-        print(m.group(4))
         try:
             media = wiki.models.Media.objects.get(name=m.group(2))
         except ObjectDoesNotExist:
@@ -90,6 +89,14 @@ class inlineMediaInsert(InlinePattern):
         el.set("alt",media.name)
         if m.group(4):
             el.set("title",m.group(4))
+        return el
+
+class inlineHappyEmoji(InlinePattern):
+    regex = r':\)'
+    def handleMatch(self, m):
+        el = etree.Element("span")
+        el.set("class","emoji")
+        el.text = ' 🙂 '
         return el
 
 class wikiMarkdownExtention(Extension):

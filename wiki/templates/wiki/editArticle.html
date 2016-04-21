@@ -1,4 +1,5 @@
 {% load static %}
+{% load user_extras %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,9 +19,41 @@
         <div class="contentWrapper">
             <textarea class="content" name="{{ form.content.html_name }}" placeholder="Contenu">{% if form.content.value %}{{ form.content.value }}{% endif %}</textarea>
         </div>
-        <button class="submit" type="submit" title="Valider les modifications">
-            <i class="material-icons">done</i>
-        </button>
+        <nav class="verticalButtons">
+            <div class="nightMode" id="toggleNightMode" title="Mode nuit">
+                <i class="material-icons">remove_red_eye</i>
+            </div>
+            <div class="photo" id="toggleMediaWindow" title="Parcourir les images">
+                <i class="material-icons">camera_alt</i>
+            </div>
+            <button class="submit" type="submit" title="Valider les modifications">
+                <i class="material-icons">done</i>
+            </button>
+        </nav>
     </form>
+    <div class="medias">
+        {% for media in medias %}
+            <div class="media" data-name="{{ media.name }}">
+                <div class="image">
+                    <img src="{{ media.file.url }}">
+                </div>
+                <div class="info">
+                    <span class="name">{{ media.name }}</span>
+                    <span class="author">{{ media.author|big_user_name }}</span>
+                    <span class="date">{{  media.uploadDate|date:"D d M Y" }}</span>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="media add">
+            <div class="image">
+                <i class="material-icons">add</i>
+            </div>
+            <div class="info">
+                <span class="addText">Envoyez une image</span>
+            </div>
+        </div>
+    </div>
+<script src="{% static "js/jquery.js" %}"></script>
+<script src="{% static "js/editArticle.js" %}"></script>
 </body>
 </html>
