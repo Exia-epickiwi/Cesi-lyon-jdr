@@ -52,6 +52,7 @@
 .mdFormated p{
     text-align: justify;
     line-height: 25px;
+    font-size: 16px;
 }
 
 .mdFormated:not(.noAlinea) p::before{
@@ -155,6 +156,13 @@
 
 .mdFormated img{
     max-width: 100%;
+}
+
+.mdFormated p .emoji, .mdFormated li .emoji, .mdFormated a .emoji{
+    height: 20px;
+    display: inline-block;
+    margin-bottom: -3px;
+    width: auto;
 }
 
 @media screen and (max-width: 1000px) {

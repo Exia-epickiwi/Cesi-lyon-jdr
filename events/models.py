@@ -2,6 +2,8 @@
 from django.db import models
 from markdown import markdown
 from django.contrib.auth.models import User
+from wiki.mdExtentions import wikiMarkdownExtention
+from wiki.unimoji import UnimojiExtension
 
 # Create your models here.
 class Event(models.Model):
@@ -15,7 +17,7 @@ class Event(models.Model):
     background = models.ImageField(verbose_name="Arrière plan",blank=True,null=True,upload_to="eventsBackgrounds/")
 
     def formatedDescription(self):
-        return markdown(self.description)
+        content = markdown(self.content,extensions=[wikiMarkdownExtention(),UnimojiExtension()])
 
     def comments(self):
         return self.comment_set.all().order_by("date")

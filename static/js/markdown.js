@@ -3,7 +3,7 @@
  */
 
 $(function(){
-    $(".mdFormated img").each(function(index,element){
+    $(".mdFormated img:not(.emoji)").each(function(index,element){
        var $img = $(element);
         var imgsrc = $img.attr("src");
         var imgTitle = $img.attr("title");
@@ -24,5 +24,9 @@ $(function(){
         newElement += "</div>";
         $img.after(newElement);
         $img.remove();
+    });
+    $(".mdFormated").each(function(index,element){
+        var el = $(element);
+        el.html(twemoji.parse(el.html()));
     });
 });

@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.utils.text import slugify
 from markdown import markdown
 from wiki.mdExtentions import wikiMarkdownExtention
+from wiki.unimoji import UnimojiExtension
 
 class Article(models.Model):
 
@@ -21,7 +22,7 @@ class Article(models.Model):
 
     def formatedContent(self):
         """Donne le texte formaté en markdown"""
-        content = markdown(self.content,extensions=[wikiMarkdownExtention()])
+        content = markdown(self.content,extensions=[wikiMarkdownExtention(),UnimojiExtension()])
         return content
 
     def __unicode__(self):

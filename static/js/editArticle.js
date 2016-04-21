@@ -1,4 +1,14 @@
 $(function(){
+
+    $(".medias .media").each(function(index,element){
+        var el = $(element);
+        var img = el.find("img").get(0);
+        if(img && img.width < img.height){
+            el.addClass("reverseDimentions");
+        }
+    });
+
+
     $("#toggleNightMode").on("click",function(e){
         e.preventDefault();
         $("body").toggleClass("night")

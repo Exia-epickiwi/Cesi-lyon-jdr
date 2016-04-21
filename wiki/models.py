@@ -4,6 +4,7 @@ from django.utils.text import slugify
 from django.contrib.auth.models import User
 from markdown import markdown
 from wiki.mdExtentions import wikiMarkdownExtention
+from wiki.unimoji import UnimojiExtension
 
 class Article(models.Model):
 
@@ -16,7 +17,7 @@ class Article(models.Model):
         self.slug = slugify(self.title)
 
     def formatedContent(self):
-        content = markdown(self.content,extensions=[wikiMarkdownExtention()])
+        content = markdown(self.content,extensions=[wikiMarkdownExtention(),UnimojiExtension()])
         return content
 
     def baseMessages(self):

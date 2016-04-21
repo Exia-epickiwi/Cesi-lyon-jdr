@@ -91,14 +91,6 @@ class inlineMediaInsert(InlinePattern):
             el.set("title",m.group(4))
         return el
 
-class inlineHappyEmoji(InlinePattern):
-    regex = r':\)'
-    def handleMatch(self, m):
-        el = etree.Element("span")
-        el.set("class","emoji")
-        el.text = ' 🙂 '
-        return el
-
 class wikiMarkdownExtention(Extension):
     def extendMarkdown(self, md, md_globals):
         md.inlinePatterns.add('internallink',inlineInternalLink(inlineInternalLink.regex,md),'_end')

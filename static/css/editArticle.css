@@ -170,7 +170,7 @@ nav.verticalButtons > *{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -189,6 +189,12 @@ nav.verticalButtons > *{
     width: auto;
     height: 150px;
     transform: translateX(-18.75%);
+}
+
+.medias .media.reverseDimentions .image img{
+    width: 150px;
+    height: auto;
+    transform: translateY(-18.75%);
 }
 
 .medias .media .info{
