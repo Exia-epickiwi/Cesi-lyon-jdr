@@ -9,6 +9,10 @@
     text-decoration: none;
 }
 
+.mdFormated a.notFound{
+    color: #f44336;
+}
+
 .mdFormated h1, .mdFormated h2, .mdFormated h3, .mdFormated h4, .mdFormated h5{
     padding-left: 1vw;
 }
