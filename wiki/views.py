@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import markdown
+from django.http import Http404, HttpResponse
 from django.shortcuts import render,redirect
 from django.core.exceptions import ObjectDoesNotExist
 from datetime import datetime
@@ -108,3 +109,18 @@ def editArticle(request,slug):
     medias = Media.objects.all().order_by("name")
     mediaForm = AddMediaForm()
     return render(request, "wiki/editArticle.html", locals())
+
+def addMedia(request):
+    if request.method == "POST" and request.user.is_authenticated():
+        form = AddMediaForm(request.POST,request.FILES)
+        if form.is_valid():
+            newMedia = form.save(commit=False)
+            newMedia.author = request.user
+            newMedia.save()
+            return render(request,"wiki/newMedia.json",locals())
+        else:
+            invalid = HttpResponse(form.errors.as_json(),content_type="application/javascript")
+            invalid.status_code = 400
+            return invalid
+    else:
+        raise Http404()

@@ -1,0 +1,7 @@
+{% load user_extras %}
+{
+  "name": "{{newMedia.name}}",
+  "fileUrl": "{{newMedia.file.url}}",
+  "author": "{{newMedia.author|big_user_name}}",
+  "date": "{{newMedia.uploadDate|date:'D d M Y'}}"
+}
