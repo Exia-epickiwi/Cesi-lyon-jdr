@@ -4,7 +4,7 @@ from django.shortcuts import render,redirect
 from django.core.exceptions import ObjectDoesNotExist
 from datetime import datetime
 from wiki.models import Article, Redirection, Media
-from wiki.forms import EditArticleForm, CreateArticleForm, AddMessageForm
+from wiki.forms import EditArticleForm, CreateArticleForm, AddMessageForm, AddMediaForm
 from users import views as authViews
 from django.contrib import messages
 
@@ -106,4 +106,5 @@ def editArticle(request,slug):
         form = EditArticleForm(instance=article)
 
     medias = Media.objects.all().order_by("name")
+    mediaForm = AddMediaForm()
     return render(request, "wiki/editArticle.html", locals())

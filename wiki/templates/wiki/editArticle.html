@@ -49,14 +49,23 @@
                 <i class="material-icons">add</i>
             </div>
             <div class="info">
-                <span class="addText">Envoyez une image</span>
+                <span class="addText">Envoyer une image</span>
             </div>
         </div>
     </div>
     <div class="addForm">
         <form action="#" method="post" enctype="multipart/form-data">
-            <nav class="actionButtons">
                 {% csrf_token %}
+            <h2>Envoyer une image</h2>
+                <div class="formField">
+                    <input type="text" placeholder="{{ mediaForm.name.label }}" name="{{ mediaForm.name.html_name }}" {% if mediaForm.name.value %}
+                        value="{{ mediaForm.name.value }}"
+                    {% endif %}/>
+                </div>
+                <div class="formField">
+                    {{ mediaForm.file }}
+                </div>
+            <nav class="actionButtons">
                 <button type="submit" id="startUpload">Valider</button>
                 <button type="reset" id="cancelUpload">Annuler</button>
             </nav>
