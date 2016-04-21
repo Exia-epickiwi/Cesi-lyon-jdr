@@ -1,0 +1,51 @@
+.blog{
+    width: 50vw;
+    margin: 0 auto;
+}
+
+.blog article{
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+.blog article:not(:last-child){
+    border-bottom: solid 1px #ededed;
+}
+
+.blog article > h2{
+    font-size: 35px;
+    font-weight: lighter;
+    color: #f44336;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.blog .meta{
+    text-align: center;
+    color: #9f9f9f;
+    margin-bottom: 50px;
+    font-weight: lighter;
+}
+
+.blog .image.even{
+    margin-right: -200px;
+}
+
+.blog .image.odd{
+    margin-left: -200px;
+}
+
+.blog .image{
+    max-width: 50%;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .blog{
+        width: 90vw;
+    }
+
+    .blog .image.even, .blog .image.odd{
+        margin: 0;
+    }
+}

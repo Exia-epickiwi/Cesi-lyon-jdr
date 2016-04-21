@@ -9,7 +9,10 @@ def home(request):
     projects = models.Project.objects.all().order_by("name")
     projectNumber = len(projects)
 
-    return render(request,'projects/home.html',locals())
+    if projectNumber != 1:
+        return render(request,'projects/home.html',locals())
+    else:
+        return redirect(showProject,slug=projects.first().slug)
 
 def showProject(request,slug):
 

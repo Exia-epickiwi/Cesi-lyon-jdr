@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load static humanize %}
+{% load user_extras %}
 {% block head %}
     <link rel="stylesheet" href="{% static "css/home.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/blog.css" %}"/>
     <link rel="stylesheet" href="{% static "css/markdown.css" %}"/>
 {% endblock %}
 {% block content %}
@@ -36,6 +38,20 @@
                 <div class="progressionBar"><div class="bar"></div></div>
             </a>
         {% endfor %}
+    </section>
+    <section class="blog">
+        {% for article in articles %}
+            <article>
+                <h2>{{ article.title }}</h2>
+                <div class="meta">{{ article.author|big_user_name }} {{ article.date|naturaltime }}</div>
+                <div class="mdFormated articleContent">
+                    {% autoescape off %}
+                    {{ article.formatedContent }}
+                    {% endautoescape %}
+                </div>
+            </article>
+        {% endfor %}
+
 {% endblock %}
 {% block script %}
     <script src="{% static "js/projects.js" %}"></script>
