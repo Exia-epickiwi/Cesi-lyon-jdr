@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from wiki.models import Article, Redirection, Message, Modification
+from wiki.models import Article, Redirection, Message, Modification, Media
 
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ("title","creation")
@@ -28,8 +28,16 @@ class ModificationAdmin(admin.ModelAdmin):
     date_hierarchy = "date"
     search_fields = ("author","article","newContent")
 
+class MediaAdmin(admin.ModelAdmin):
+    list_display = ("name","author","uploadDate")
+    list_filter = ("author",)
+    ordering = ("name",)
+    date_hierarchy = "uploadDate"
+    search_fields = ("author","name")
+
 
 admin.site.register(Article,ArticleAdmin)
 admin.site.register(Redirection,RedirectionAdmin)
 admin.site.register(Message,MessageAdmin)
 admin.site.register(Modification,ModificationAdmin)
+admin.site.register(Media,MediaAdmin)

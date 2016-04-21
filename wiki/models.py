@@ -74,3 +74,14 @@ class Message(models.Model):
     def replys(self):
 
         return self.message_set.order_by("date")
+
+class Media(models.Model):
+
+    author = models.ForeignKey(User,verbose_name="Auteur")
+    file = models.ImageField(verbose_name="Média",upload_to="wikiMedia/")
+    name = models.CharField(max_length=255,verbose_name="Nom",unique=True)
+    uploadDate = models.DateTimeField(verbose_name="Date d'upload",auto_now_add=True)
+
+    def __unicode__(self):
+        """Donne le nom du media"""
+        return self.name
