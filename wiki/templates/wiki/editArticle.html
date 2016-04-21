@@ -32,19 +32,19 @@
         </nav>
     </form>
     <div class="medias">
-        {% for media in medias %}
-            <div class="media" data-name="{{ media.name }}">
-                <div class="image">
-                    <img src="{{ media.file.url }}">
+            {% for media in medias %}
+                <div class="media" data-name="{{ media.name }}">
+                    <div class="image">
+                        <img src="{{ media.file.url }}">
+                    </div>
+                    <div class="info">
+                        <span class="name">{{ media.name }}</span>
+                        <span class="author">{{ media.author|big_user_name }}</span>
+                        <span class="date">{{  media.uploadDate|date:"D d M Y" }}</span>
+                    </div>
                 </div>
-                <div class="info">
-                    <span class="name">{{ media.name }}</span>
-                    <span class="author">{{ media.author|big_user_name }}</span>
-                    <span class="date">{{  media.uploadDate|date:"D d M Y" }}</span>
-                </div>
-            </div>
-        {% endfor %}
-        <div class="media add">
+            {% endfor %}
+        <div class="media add" id="addImage">
             <div class="image">
                 <i class="material-icons">add</i>
             </div>
@@ -52,6 +52,15 @@
                 <span class="addText">Envoyez une image</span>
             </div>
         </div>
+    </div>
+    <div class="addForm">
+        <form action="#" method="post" enctype="multipart/form-data">
+            <nav class="actionButtons">
+                {% csrf_token %}
+                <button type="submit" id="startUpload">Valider</button>
+                <button type="reset" id="cancelUpload">Annuler</button>
+            </nav>
+        </form>
     </div>
 <script src="{% static "js/jquery.js" %}"></script>
 <script src="{% static "js/editArticle.js" %}"></script>

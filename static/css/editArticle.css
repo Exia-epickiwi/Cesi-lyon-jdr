@@ -96,6 +96,50 @@ nav.verticalButtons > *{
     text-align: center;
 }
 
+.addForm{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 30;
+}
+
+.addForm.show{
+    display: block;
+}
+
+.addForm form{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.addForm form button{
+    background-color: transparent;
+    border: solid 2px rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.8);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.addForm form button[type="submit"]{
+    background-color: rgba(255,255,255,0.8);
+    border: solid 2px transparent;
+    color: rgba(0,0,0,0.8);
+    margin-right: 6.25vw;
+}
+
 .medias.show{
     display: flex;
     flex-direction: row;

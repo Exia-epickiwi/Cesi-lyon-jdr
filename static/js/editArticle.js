@@ -15,6 +15,12 @@ $(function(){
         prompt("Copiez le nom de cette image avec Ctrl+C",$(this).data("name"));
     });
 
+    $("#addImage").on("click",function(e){
+        $(".medias").toggleClass("blurred");
+        $(".verticalButtons").toggleClass("blurred");
+        $(".addForm").toggleClass("show");
+    });
+
     $(window).on("keypress",function(e){
         if(e.keyCode == 13 && e.ctrlKey){
             $("form").submit();
