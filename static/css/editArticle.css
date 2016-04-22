@@ -180,7 +180,8 @@ nav.verticalButtons > *{
     overflow: hidden;
     display: inline-block;
     margin: 10px;
-    border: rgba(255,255,255,0.5) solid 5px;
+    border: transparent solid 5px;
+    background-color: rgba(255,255,255,0.5);
     position: relative;
     cursor: pointer;
 }
@@ -188,13 +189,11 @@ nav.verticalButtons > *{
 .medias .media .image img{
     width: auto;
     height: 150px;
-    transform: translateX(-18.75%);
 }
 
 .medias .media.reverseDimentions .image img{
     width: 150px;
     height: auto;
-    transform: translateY(-18.75%);
 }
 
 .medias .media .info{
@@ -227,6 +226,11 @@ nav.verticalButtons > *{
 
 .medias .media:hover .image img{
     filter: blur(5px);
+}
+
+.medias .media.add{
+    border-color: rgba(255,255,255,0.5);
+    background-color: transparent;
 }
 
 .medias .media.add .image{

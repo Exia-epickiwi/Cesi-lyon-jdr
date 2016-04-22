@@ -1,0 +1,20 @@
+{% load user_extras %}
+{% load markdown_extras %}
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>{{ request.settings.blogrsstitle }}</title>
+        <description>{{ request.settings.blogrssdescription }}</description>
+        <lastBuildDate>{{ articles.first.date|date:"r" }}</lastBuildDate>
+        <link>{% url "index.views.home" %}</link>
+        {% for article in articles %}
+        <item>
+            <title>{{ article.title }}</title>
+            <pubDate>{{ article.date|date:"r" }}</pubDate>
+            <description>{{ article.content|markdown|truncatewords_html:100 }}</description>
+            <guid>{{ article.id }}</guid>
+            <author>{{ article.author|big_user_name }}</author>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>

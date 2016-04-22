@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^calendar/', include("events.urls")),
     url(r'^project/', include("projects.urls")),
     url(r'^user/',include("users.urls")),
+    url(r'^blog/',include("blog.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

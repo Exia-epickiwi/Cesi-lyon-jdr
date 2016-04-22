@@ -21,8 +21,8 @@ $(function(){
         $(".medias").toggleClass("show");
     });
 
-    $(".medias").on("click",".media:not(.add)",function(e){
-        prompt("Copiez le nom de cette image avec Ctrl+C",$(this).data("name"));
+    $(".medias").on("click",".media:not(.add):not(.tmp)",function(e){
+        prompt("Insèrer cette balise pour afficher l'image","$[["+$(this).data("name")+"]]");
     });
 
     $("#addImage").on("click",function(e){
@@ -32,16 +32,17 @@ $(function(){
     });
 
     $("#cancelUpload").on("click",function(e){
-        $(".medias").toggleClass("blurred");
-        $(".verticalButtons").toggleClass("blurred");
-        $(".addForm").toggleClass("show");
+        $(".medias").removeClass("blurred");
+        $(".verticalButtons").removeClass("blurred");
+        $(".addForm").removeClass("show");
         $("#errorForm").html("");
     });
 
     $('#uploadForm').on('submit',(function(e) {
         e.preventDefault();
         var formData = new FormData(this);
-
+        $("#addImage").before(
+"<div class='media add tmp'><div class='image'><i class='material-icons'>file_upload</i></div><div class='info'><span class='name'>Envoie de votre image en cours</span></div></div>");
         $.ajax({
             type:'POST',
             url: $(this).attr('action'),
@@ -51,12 +52,16 @@ $(function(){
             processData: false,
             success:function(data){
                 var newMedia = JSON.parse(data);
+                $(".medias .media.tmp").remove();
                 $("#addImage").before(
-"<div class='media' data-name='"+newMedia.name+"'><div class='image'><img src='"+newMedia.fileUrl+"'></div><div class='info'><span class='name'>"+newMedia.name+"</span> <span class='author'>"+newMedia.author+"</span><span class='date'>"+newMedia.date+"</span></div></div>")
-            $("#cancelUpload").click();
+"<div class='media' data-name='"+newMedia.name+"'><div class='image'><img src='"+newMedia.fileUrl+"'></div><div class='info'><span class='name'>"+newMedia.name+"</span> <span class='author'>"+newMedia.author+"</span><span class='date'>"+newMedia.date+"</span></div></div>");
+        $("#cancelUpload").click();
             },
             error: function(data){
-                console.log(data);
+                $(".medias .media.tmp").remove();
+                $(".medias").addClass("blurred");
+                $(".verticalButtons").addClass("blurred");
+                $(".addForm").addClass("show");
                 var html = "";
                 if(data.status == 400){
                     var errors = JSON.parse(data.responseText);
@@ -75,6 +80,9 @@ $(function(){
                 $("#errorForm").html(html);
             }
         });
+        $(".medias").removeClass("blurred");
+        $(".verticalButtons").removeClass("blurred");
+        $(".addForm").removeClass("show");
     }));
 
     $(window).on("keypress",function(e){

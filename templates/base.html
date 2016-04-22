@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="{% static "css/icons.css" %}"/>
         <link rel="stylesheet" href="{% static "css/reset.css" %}"/>
         <link rel="stylesheet" href="{% static "css/global.css" %}"/>
+        <link rel="alternate" type="application/rss+xml" title="{{ request.settings.blogrsstitle }}" href="{% url "blog.views.rss" %}" />
         <script src="//twemoji.maxcdn.com/2/twemoji.min.js"></script>
         {% block head %}{% endblock %}
     </head>
