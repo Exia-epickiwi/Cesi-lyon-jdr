@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static user_extras humanize %}
+{% load static user_extras humanize markdown_extras %}
 {% block headerClass %}transparent{% endblock %}
 {% block head %}
         <link rel="stylesheet" href="{% static "css/event.css" %}"/>
@@ -21,7 +21,7 @@
     </div>
     <article class="description">
         {% autoescape off %}
-            {{ event.formatedDescription }}
+            {{ event.description|markdown }}
         {%  endautoescape %}
     </article>
     <article class="comments" id="comments">
