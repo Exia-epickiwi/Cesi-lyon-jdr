@@ -158,12 +158,31 @@
     max-width: 100%;
 }
 
+.mdFormated img.hidden{
+    display: none;
+}
+
 .mdFormated p .emoji, .mdFormated li .emoji, .mdFormated a .emoji{
-    height: 20px;
+    height: 23px;
     display: inline-block;
-    margin-bottom: -3px;
+    margin-bottom: -5px;
     width: auto;
 }
+
+.mdFormated h1 .emoji{
+    height: 49px;
+    display: inline-block;
+    margin-bottom: -11px;
+    width: auto;
+}
+
+.mdFormated h2 .emoji, .mdFormated h3 .emoji{
+    height: 42px;
+    display: inline-block;
+    margin-bottom: -9px;
+    width: auto;
+}
+
 
 @media screen and (max-width: 1000px) {
     .image.odd, .image.even{

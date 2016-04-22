@@ -6,7 +6,7 @@ from markdown.inlinepatterns import Pattern
 
 class UnimojiExtension(Extension):
     EMOJI = {
-        '😊': ':) :-) :] :-] =) =] ^^ ^_^ ☺'.split(),
+        '🙂': ':) :-) :] :-] =) =] ^^ ^_^ ☺'.split(),
         '😉': ';) ;-) ;] ;-]'.split(),
         '😄': ':D :-D =D'.split(),
         '😂': ":,D :'D =,D ='D".split(),

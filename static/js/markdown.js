@@ -4,7 +4,7 @@
 
 $(function(){
     $(".mdFormated img:not(.emoji)").each(function(index,element){
-       var $img = $(element);
+        var $img = $(element);
         var imgsrc = $img.attr("src");
         var imgTitle = $img.attr("title");
         var imgAlt = $img.attr("alt");
@@ -22,7 +22,7 @@ $(function(){
             newElement += "'/>";
         }
         newElement += "</div>";
-        $img.after(newElement);
+        $img.parent().before(newElement);
         $img.remove();
     });
     $(".mdFormated").each(function(index,element){
