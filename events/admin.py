@@ -18,7 +18,7 @@ class CommentAdmin(admin.ModelAdmin):
     list_filter = ("author","event")
     date_hierarchy = "date"
     ordering = ("date",)
-    search_fields = ("author","content")
+    search_fields = ("author","content","authorName")
 
 admin.site.register(Event,EventAdmin)
 admin.site.register(Comment,CommentAdmin)

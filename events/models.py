@@ -32,7 +32,8 @@ class Event(models.Model):
 
 class Comment(models.Model):
 
-    author = models.ForeignKey(User,verbose_name="Auteur")
+    author = models.ForeignKey(User,blank=True,null=True,verbose_name="Auteur")
+    authorName = models.CharField(max_length=255,blank=True,null=True,verbose_name="Nom",help_text="Si l'auteur n'est pas un utilisateur")
     content = models.TextField(verbose_name="Contenu")
     date = models.DateTimeField(auto_now_add=True,verbose_name="Date")
     event = models.ForeignKey(Event,verbose_name="Evenement associé")

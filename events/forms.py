@@ -7,3 +7,9 @@ class addComment(forms.ModelForm):
     class Meta:
         model = models.Comment
         fields = ("content",)
+
+class addAnoymousComment(forms.ModelForm):
+
+    class Meta:
+        model = models.Comment
+        fields = ("authorName","content")

@@ -31,7 +31,16 @@ def showEvent(request,slug):
                 comment.author = request.user
                 comment.event = event
                 comment.save()
-        else:
-            form = forms.addComment()
+        form = forms.addComment()
+
+    else:
+
+        if request.method == "POST":
+            form = forms.addAnoymousComment(request.POST)
+            if form.is_valid():
+                comment = form.save(commit=False)
+                comment.event = event
+                comment.save()
+        form = forms.addAnoymousComment()
 
     return render(request, 'events/showEvent.html', locals())
