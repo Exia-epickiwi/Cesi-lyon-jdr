@@ -47,9 +47,10 @@
                 <div class="meta">{{ article.author|big_user_name }} <span title="{{ article.date|date:"D d F Y H:i"}}">{{ article.date|naturaltime }}</span></div>
                 <div class="mdFormated articleContent">
                     {% autoescape off %}
-                    {{ article.content|markdown }}
+                    {{ article.content|markdown|truncatewords_html:150 }}
                     {% endautoescape %}
                 </div>
+                <nav><a class="fullArticle" href="{% url "blog.views.showArticle" article.slug %}">Lire la suite ...</a></nav>
             </article>
         {% endfor %}
 

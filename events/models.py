@@ -9,7 +9,7 @@ from wiki.unimoji import UnimojiExtension
 class Event(models.Model):
 
     title = models.CharField(max_length=255,verbose_name="Titre")
-    slug = models.CharField(max_length=255,verbose_name="Identifiant")
+    slug = models.CharField(max_length=255,verbose_name="Identifiant",unique=True)
     description = models.TextField(verbose_name="Description")
     date = models.DateTimeField(verbose_name="Date")
     place = models.CharField(max_length=255,verbose_name="Lieu")

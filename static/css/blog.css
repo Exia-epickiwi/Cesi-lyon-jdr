@@ -3,6 +3,10 @@
     margin: 0 auto;
 }
 
+.blog.extended{
+    padding-top: 25px;
+}
+
 .blog article{
     margin-top: 50px;
     padding-bottom: 50px;
@@ -37,6 +41,18 @@
 
 .blog .image{
     max-width: 50%;
+}
+
+.blog article nav{
+    width: 100%;
+    text-align: right;
+}
+
+.blog article nav > *{
+    display: inline-block;
+    color: #9f9f9f;
+    font-size: 15px;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 1000px) {

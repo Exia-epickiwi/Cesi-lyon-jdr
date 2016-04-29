@@ -4,4 +4,5 @@ from blog import views
 
 urlpatterns = [
     url(r'^flux\.rss$',views.rss),
+    url(r'^(?P<slug>.+)$',views.showArticle),
 ]

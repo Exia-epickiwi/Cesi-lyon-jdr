@@ -9,7 +9,7 @@ from wiki.unimoji import UnimojiExtension
 class Article(models.Model):
 
     title = models.CharField(max_length=255,verbose_name="Titre")
-    slug = models.CharField(max_length=255,verbose_name="Identifiant")
+    slug = models.CharField(max_length=255,verbose_name="Identifiant",unique=True)
     content = models.TextField(null=True,verbose_name="Contenu")
     creation = models.DateTimeField(auto_now_add=True,auto_now=False,verbose_name="Date de creation")
 

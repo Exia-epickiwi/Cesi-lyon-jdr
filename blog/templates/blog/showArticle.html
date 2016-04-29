@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% load markdown_extras %}
+{% load user_extras %}
+{% load humanize %}
+{% block head %}
+<link rel="stylesheet" href="{% static "css/markdown.css" %}" />
+<link rel="stylesheet" href="{% static "css/blog.css" %}"/>
+{% endblock %}
+{% block content %}
+<section class="blog extended">
+
+    <article>
+        <h2>{{ article.title }}</h2>
+        <div class="meta">{{ article.author|big_user_name }} <span title="{{ article.date|date:"D d F Y H:i"}}">{{ article.date|naturaltime }}</span></div>
+        <div class="mdFormated articleContent">
+            {% autoescape off %}
+                {{ article.content|markdown }}
+            {% endautoescape %}
+        </div>
+    </article>
+
+</section>
+{% endblock %}
+{% block script %}
+    <script src="{% static "js/markdown.js" %}"></script>
+{% endblock %}

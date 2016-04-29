@@ -8,7 +8,7 @@ class Project(models.Model):
 
     name = models.CharField(max_length=255,verbose_name="Nom")
     wikiArticle = models.ForeignKey(wikiModels.Article,verbose_name="Article de description")
-    slug = models.CharField(max_length=255,verbose_name="Identifiant")
+    slug = models.CharField(max_length=255,verbose_name="Identifiant",unique=True)
 
     def __unicode__(self):
         """Renvoie le nom du projet"""
