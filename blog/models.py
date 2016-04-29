@@ -7,6 +7,7 @@ from django.utils.text import slugify
 from markdown import markdown
 from wiki.mdExtentions import wikiMarkdownExtention
 from wiki.unimoji import UnimojiExtension
+from wiki.templatetags import markdown_extras
 
 class Article(models.Model):
 
@@ -22,8 +23,7 @@ class Article(models.Model):
 
     def formatedContent(self):
         """Donne le texte formaté en markdown"""
-        content = markdown(self.content,extensions=[wikiMarkdownExtention(),UnimojiExtension()])
-        return content
+        return markdown_extras.markdown(self.content)
 
     def __unicode__(self):
         """Donne le titre de l'article"""

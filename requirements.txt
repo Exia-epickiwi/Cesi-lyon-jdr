@@ -3,3 +3,4 @@ Markdown
 Pillow
 psycopg2
 pytz
+djangorestframework

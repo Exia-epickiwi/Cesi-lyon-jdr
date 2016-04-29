@@ -2,9 +2,7 @@
 from django.db import models
 from django.utils.text import slugify
 from django.contrib.auth.models import User
-from markdown import markdown
-from wiki.mdExtentions import wikiMarkdownExtention
-from wiki.unimoji import UnimojiExtension
+from wiki.templatetags import markdown_extras
 
 class Article(models.Model):
 
@@ -17,8 +15,8 @@ class Article(models.Model):
         self.slug = slugify(self.title)
 
     def formatedContent(self):
-        content = markdown(self.content,extensions=[wikiMarkdownExtention(),UnimojiExtension()])
-        return content
+        """Donne le texte formaté en markdown"""
+        return markdown_extras.markdown(self.content)
 
     def baseMessages(self):
         return self.message_set.filter(reply=None).order_by("date")
