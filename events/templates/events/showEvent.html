@@ -43,15 +43,15 @@
         {% if form %}
             <div class="comment">
                 <form method="post" action="{% url "events.views.showEvent" event.slug %}">
+                <button type="submit">
+                        <i class="material-icons">check</i>
+                    </button>
                 {% csrf_token %}
                     <div class="name">Ajouter un commentaire</div>
                     {% if form.authorName %}
                         <input type="text" placeholder="{{ form.authorName.label }}" name="{{ form.authorName.html_name }}" />
                     {% endif %}
                     <textarea class="addcontent content" name="{{ form.content.html_name }}" placeholder="{{ form.content.label }}">{% if form.content.value %}{{ form.content.value }}{% endif %}</textarea>
-                    <button type="submit">
-                        <i class="material-icons">check</i>
-                    </button>
                 </form>
             </div>
         {% endif %}
