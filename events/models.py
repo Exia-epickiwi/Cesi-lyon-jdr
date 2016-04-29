@@ -4,6 +4,7 @@ from markdown import markdown
 from django.contrib.auth.models import User
 from wiki.mdExtentions import wikiMarkdownExtention
 from wiki.unimoji import UnimojiExtension
+from blog.models import Article
 
 # Create your models here.
 class Event(models.Model):
@@ -36,7 +37,8 @@ class Comment(models.Model):
     authorName = models.CharField(max_length=255,blank=True,null=True,verbose_name="Nom",help_text="Si l'auteur n'est pas un utilisateur")
     content = models.TextField(verbose_name="Contenu")
     date = models.DateTimeField(auto_now_add=True,verbose_name="Date")
-    event = models.ForeignKey(Event,verbose_name="Evenement associé")
+    event = models.ForeignKey(Event,verbose_name="Evenement associé",null=True,blank=True)
+    blogArticle = models.ForeignKey(Article,verbose_name="Article associé",null=True,blank=True)
 
     def __unicode__(self):
         """Renvoie le contenu du commentaire"""

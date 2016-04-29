@@ -14,8 +14,8 @@ class EventAdmin(admin.ModelAdmin):
 
 class CommentAdmin(admin.ModelAdmin):
 
-    list_display = ("author","content","date","event")
-    list_filter = ("author","event")
+    list_display = ("author","content","date","event","blogArticle")
+    list_filter = ("author","event","blogArticle")
     date_hierarchy = "date"
     ordering = ("date",)
     search_fields = ("author","content","authorName")

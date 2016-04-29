@@ -2,10 +2,12 @@
 {% load static %}
 {% load markdown_extras %}
 {% load user_extras %}
+{% load comment_extra %}
 {% load humanize %}
 {% block head %}
 <link rel="stylesheet" href="{% static "css/markdown.css" %}" />
 <link rel="stylesheet" href="{% static "css/blog.css" %}"/>
+<link rel="stylesheet" href="{% static "css/comments.css" %}"/>
 {% endblock %}
 {% block content %}
 <section class="blog extended">
@@ -18,6 +20,31 @@
                 {{ article.content|markdown }}
             {% endautoescape %}
         </div>
+    </article>
+
+    <article class="comments">
+        {% for comment in comments %}
+            <div class="comment">
+                <div class="date relativeDate" data-timestamp="{{ comment.date.timestamp }}">{{ comment.date|naturaltime }}</div>
+                <div class="name">{{ comment|comment_user }}</div>
+                <div class="content">{{ comment.content }}</div>
+            </div>
+        {% endfor %}
+        {% if form %}
+            <div class="comment">
+                <form method="post" action="{% url "blog.views.showArticle" article.slug  %}">
+                {% csrf_token %}
+                    <div class="name">Ajouter un commentaire</div>
+                    {% if form.authorName %}
+                        <input type="text" placeholder="{{ form.authorName.label }}" name="{{ form.authorName.html_name }}" />
+                    {% endif %}
+                    <textarea class="addcontent content" name="{{ form.content.html_name }}" placeholder="{{ form.content.label }}">{% if form.content.value %}{{ form.content.value }}{% endif %}</textarea>
+                    <button type="submit">
+                        <i class="material-icons">check</i>
+                    </button>
+                </form>
+            </div>
+        {% endif %}
     </article>
 
 </section>
