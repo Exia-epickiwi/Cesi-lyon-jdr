@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static markdown_extras %}
 {% block title %}
     {{ project.name }} - {{ request.settings.siteName }}
 {% endblock %}
@@ -12,7 +12,7 @@
     <h2><a href="{% url "wiki.views.showArticle" project.wikiArticle.slug %}" title="Voir la présentation sur le wiki">{{ project.name }}</a></h2>
     <article class="projectDesc mdFormated">
         {% autoescape off %}
-            {{ project.wikiArticle.formatedContent }}
+            {{ project.wikiArticle.content|markdown }}
         {% endautoescape %}
     </article>
     <article class="projectList tasks">

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static user_extras%}
+{% load static user_extras markdown_extras%}
 {% block title %}
     {{ article.title }} - {{ request.settings.siteName }}
 {% endblock %}
@@ -28,7 +28,7 @@
         </div>
     </article>{%  autoescape off %}<article class="content mdFormated{% if article.baseMessages.count == 0 and not request.user.is_authenticated %} noMessages{% endif %}" id="contentContainer">
     {# Content #}
-    {{ article.formatedContent }}
+    {{ article.content|markdown }}
     </article>{% endautoescape %}<article class="comments{% if article.baseMessages.count == 0 and not request.user.is_authenticated %} noMessages{% endif %}" id="commentsContainer">
     {# Comments #}
     <nav>
