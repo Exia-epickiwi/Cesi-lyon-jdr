@@ -17,13 +17,14 @@
 
 body{
     font-family: "Open Sans", sans-serif;
-    /*background-image: url("../img/background.png");*/
+    padding-top: 100px;
 }
 
 header {
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
+    z-index: 200;
 
     width: 100%;
 }
@@ -52,6 +53,10 @@ header::before, header::after {
 header::after{
     width: 90px;
     height: 90px;
+    box-shadow: black 0 0 5px;
+}
+
+header::before{
     box-shadow: black 0 0 5px;
 }
 
@@ -393,6 +398,10 @@ footer{
 }
 
 @media screen and (max-width: 600px) {
+    header {
+        position: absolute;
+    }
+
     header .logoContainer, header::before, header::after {
         display: none;
     }
@@ -402,7 +411,7 @@ footer{
     }
 
     header nav h1{
-        font-size: 9vw;
+        font-size: 8vw;
     }
 
     header nav .navLeft, header nav .navRight, header nav h1{
