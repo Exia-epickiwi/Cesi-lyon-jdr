@@ -10,11 +10,14 @@ $(function(){
         var imgAlt = $img.attr("alt");
         var newElement = "<div class='image ";
         if(index % 2 == 0){
-            newElement += "even'>";
+            newElement += "even ";
         } else {
-            newElement += "odd'>";
+            newElement += "odd ";
         }
-        newElement += "<img src='"+imgsrc+"' alt='"+imgAlt;
+        if($img.hasClass("center")){
+            newElement += "center "
+        }
+        newElement += "'><img src='"+imgsrc+"' alt='"+imgAlt;
         if(imgTitle){
             newElement +=  "title='"+imgTitle+"'/>";
             newElement += "<div class='imageInfo'>"+imgTitle+"</div>";

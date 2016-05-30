@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 {% load static user_extras humanize markdown_extras comment_extra %}
-{% block headerClass %}transparent{% endblock %}
 {% block head %}
         <link rel="stylesheet" href="{% static "css/event.css" %}"/>
         <link rel="stylesheet" href="{% static "css/comments.css" %}"/>
 {% endblock %}
 {% block title %}
-    {{ event.title }} - Comission jeux de roles CESI Lyon
+    {{ event.title }} - {{ request.settings.headerName }}
 {% endblock %}
 {% block content %}
     <div class="presentation {% if not event.background %}defaultBackground{% endif %}">

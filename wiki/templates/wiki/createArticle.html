@@ -19,9 +19,11 @@
             <input placeholder="{{ form.title.label }}" class="title" name="{{ form.title.html_name }}" {% if form.title.value %}value="{{ form.title.value }}"{% endif %}/>
             <textarea class="content" name="{{ form.content.html_name }}" placeholder="Contenu">{% if form.content.value %}{{ form.content.value }}{% endif %}</textarea>
         </div>
-        <button class="submit" type="submit" title="Créer">
-            <i class="material-icons">done</i>
-        </button>
+        <nav class="verticalButtons">
+            <button class="submit" type="submit" title="Créer">
+                <i class="material-icons">done</i>
+            </button>
+        </nav>
     </form>
 </body>
 </html>

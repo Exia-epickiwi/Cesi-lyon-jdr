@@ -114,6 +114,12 @@
     margin-right: 10px;
 }
 
+.image.center{
+    float: none;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 .image{
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -183,6 +189,22 @@
     width: auto;
 }
 
+.mdFormated table{
+    margin-left: auto;
+    margin-right: auto;
+    border: #64b5f6 solid 1px;
+}
+
+.mdFormated table td, .mdFormated table th{
+    padding: 5px 20px;
+    text-align: center;
+}
+
+.mdFormated table thead{
+    color: white;
+    background-color: #64b5f6;
+    font-weight: bold;
+}
 
 @media screen and (max-width: 1000px) {
     .image.odd, .image.even{

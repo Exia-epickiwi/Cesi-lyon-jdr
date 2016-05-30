@@ -22,8 +22,11 @@ class inlineInternalLink(InlinePattern):
         try:
             wikiArticle = wiki.models.Article.objects.get(slug=m.group(2))
         except ObjectDoesNotExist:
-            el.set("class","notFound")
-            notFound = True
+            try:
+                wikiArticle = wiki.models.Redirection.objects.get(slug=m.group(2))
+            except ObjectDoesNotExist:
+                el.set("class", "notFound")
+                notFound = True
 
         if m.group(4) :
             el.text = m.group(4)
@@ -74,7 +77,7 @@ class inlineEventLink(InlinePattern):
         return el
 
 class inlineMediaInsert(InlinePattern):
-    regex = r'\$\[\[([^\]\|]+)(\|([^\]]+))?\]\]'
+    regex = r'\$\[\[([^\]\|]+)(\|([^\]]+))?\]\](c?)'
 
     def handleMatch(self, m):
         try:
@@ -89,6 +92,8 @@ class inlineMediaInsert(InlinePattern):
         el.set("alt",media.name)
         if m.group(4):
             el.set("title",m.group(4))
+        if m.group(5):
+            el.set("class","center")
         return el
 
 class wikiMarkdownExtention(Extension):
